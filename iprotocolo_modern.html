@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i-Protocolo Premium - UNITINS</title>
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        :root {
+            --primary-blue: #0A2540;
+            --primary-yellow: #FFB100;
+            --secondary-blue: #1A3C65;
+            --text-dark: #1F2937;
+            --text-gray: #4B5563;
+            --bg-body: #F9FAFB;
+            --bg-card: rgba(255, 255, 255, 0.9);
+            --border-radius: 16px;
+            --card-shadow: 0 10px 30px rgba(10, 37, 64, 0.05);
+            --card-hover-shadow: 0 20px 40px rgba(10, 37, 64, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-blue: #60A5FA;
+                --text-dark: #F3F4F6;
+                --text-gray: #D1D5DB;
+                --bg-body: #0F172A;
+                --bg-card: rgba(30, 41, 59, 0.8);
+                --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                --secondary-blue: #1E293B;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-dark);
+            background-image: radial-gradient(circle at top right, rgba(10, 37, 64, 0.03), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(255, 177, 0, 0.03), transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Premium */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 4rem;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-brand h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links i {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-links i:hover {
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-modern {
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+             .btn-primary { background: #3B82F6; }
+             .nav-brand h1 { color: #FFFFFF; }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(10, 37, 64, 0.3);
+        }
+
+        /* Main Container */
+        .main-content {
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Breadcrumb Moderno */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .hero h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .hero ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: left;
+            background: var(--bg-card);
+            padding: 1.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .hero ul li i {
+            color: var(--primary-yellow);
+            font-size: 1.2rem;
+            background: rgba(255, 177, 0, 0.1);
+            padding: 0.4rem;
+            border-radius: 50%;
+        }
+
+        /* Grid de Action Cards */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .action-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .action-card-highlight {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, #F59E0B 100%);
+            color: white !important;
+            border: none;
+        }
+
+        .action-card-highlight:hover {
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+            color: white;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .action-card-highlight .card-icon { color: white; }
+        
+        @media (prefers-color-scheme: dark) {
+            .card-icon { color: var(--primary-blue); }
+            .action-card-highlight .card-icon { color: white; }
+        }
+
+        .action-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+        }
+        
+        .action-card-highlight h3 { color: white; }
+
+        /* Premium Footer */
+        .footer {
+            background: var(--secondary-blue);
+            color: white;
+            padding: 4rem 4rem 2rem;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-yellow);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .seal {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .seal img { width: 60px; border-radius: 8px;}
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 1.5rem; }
+            .nav-brand h1 { font-size: 1.2rem; }
+            .nav-actions .social-links, .nav-actions button:last-child { display: none; }
+            
+            .main-content { padding: 2rem 1.5rem; }
+            .hero h2 { font-size: 2.2rem; }
+            
+            .footer { padding: 2rem 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-col { text-align: left !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="https://www.unitins.br/uniPerfil/Logomarca/Imagem/09997c779523a61bd01bb69b0a789242" alt="Logo Unitins" style="height: 45px;">
+        </div>
+        <div class="nav-actions">
+            <div class="social-links">
+                <i class="ph ph-instagram-logo"></i>
+                <i class="ph ph-facebook-logo"></i>
+                <i class="ph ph-youtube-logo"></i>
+                <i class="ph ph-linkedin-logo"></i>
+            </div>
+            <button class="btn-modern btn-primary">
+                <i class="ph ph-globe"></i> PortuguÃªs
+            </button>
+            <button class="btn-modern" style="background: rgba(10,37,64,0.05); color: var(--text-dark);" onclick="window.location.href='iprotocolo_light.html'">
+                <i class="ph ph-sun"></i> Tema Claro
+            </button>
+            <button class="btn-modern" style="background: rgba(10,37,64,0.05); color: var(--text-dark);">
+                Acesso Administrativo
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <a href="#">PÃ¡gina Inicial</a> 
+            <i class="ph ph-caret-right"></i>
+            <a href="#">Aluno</a> 
+            <i class="ph ph-caret-right"></i>
+            <span style="color: var(--text-dark); font-weight: 600;">i-Protocolo</span>
+        </div>
+
+        <section class="hero">
+            <h2>Protocolo Virtual PÃºblico</h2>
+            <p>Seja bem vindo ao nosso ambiente de protocolos. Este Ã© o local oficial e seguro onde acadÃªmicos, docentes e corporaÃ§Ãµes gerem suas solicitaÃ§Ãµes de serviÃ§o.</p>
+            
+            <ul>
+                <li><i class="ph-fill ph-check-circle"></i> Suporte e controle de acesso aos sistemas</li>
+                <li><i class="ph-fill ph-check-circle"></i> EmissÃ£o e conferÃªncia de documentos oficiais</li>
+                <li><i class="ph-fill ph-check-circle"></i> Trilha fluida para dÃºvidas, elogios ou sugestÃµes</li>
+            </ul>
+        </section>
+
+        <section class="action-cards">
+            <a href="#" class="action-card action-card-highlight">
+                <i class="ph-fill ph-file-plus card-icon"></i>
+                <h3>Fazer nova solicitaÃ§Ã£o</h3>
+                <p>Abra um novo chamado rapidamente.</p>
+            </a>
+            
+            <a href="#" class="action-card">
+                <i class="ph-fill ph-funnel card-icon"></i>
+                <h3>Minhas solicitaÃ§Ãµes</h3>
+                <p>Acompanhe o status e histÃ³rico de tickets.</p>
+            </a>
+
+            <a href="#" class="action-card">
+                <i class="ph-fill ph-lightbulb-filament card-icon"></i>
+                <h3>DÃºvidas frequentes</h3>
+                <p>Nossa base fluÃ­da de tutoriais (FAQ).</p>
+            </a>
+        </section>
+    </main>
+
+    <footer class="footer" style="background: var(--secondary-blue); color: white; padding: 4rem 3rem 1.5rem; margin-top: auto;">
+        <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
+            <div class="footer-col">
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">Atendimento ao AcadÃªmico</h4>
+                <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chat-circle" style="font-size: 1.2rem;"></i> Ouvidoria Institucional</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="font-size: 1.2rem;"></i> Central 162 Ouvidoria Geral</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="font-size: 1.2rem;"></i> Fale Conosco Online</a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">CertificaÃ§Ã£o AcadÃªmica</h4>
+                <div class="seal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Unitins_eMEC&color=1A3C65&bgcolor=FFF" alt="QR Code MEC" style="width: 50px; height: 50px; background: white; border-radius: 6px; padding: 2px;">
+                    <div style="display: flex; flex-direction: column;">
+                        <strong style="color: white; font-size: 1rem;">Sistema e-MEC</strong>
+                        <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">InstituiÃ§Ã£o Credenciada Ativa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-col" style="text-align: right;">
+                <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins - RodapÃ©" style="height: 40px; opacity: 0.8; filter: brightness(0) invert(1); margin-bottom: 15px;">
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 10px;">Sede Administrativa</h4>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                    108 sul Alameda 11 Lote 03<br>
+                    Palmas-TO, CEP: 77020-122
+                </p>
+                <strong style="color: white; font-family: 'Outfit', sans-serif; font-size: 1.2rem; display: block; margin-top: 10px;">
+                    (63) 3901-4000
+                </strong>
+            </div>
+        </div>
+        <div class="copyright" style="text-align: center; padding-top: 3rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem;">
+            <p>&copy; 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto AcadÃªmico TCC.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

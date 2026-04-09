@@ -1,0 +1,21 @@
+DOCUMENTO DE FUNDAMENTACAO: ACESSIBILIDADE E INCLUSAO NO DESIGN SYSTEM (WCAG / A11Y)
+
+As interfaces desenvolvidas sob o novo Design System (SIBUNI, iProtocolo e Painel do Aluno) foram nativamente projetadas priorizando a tecnologia assistiva e as normativas globais de acessibilidade (WCAG).
+
+Uma interface bem orquestrada garante ao academico com deficiencia ou neurodivergencia total autonomia de operacoes sem depender de tutorias terceirizadas. Abaixo encontra-se o escopo de publicos assistidos pelas alteracoes tecnicas do projeto:
+
+1. ALUNOS COM DEFICIENCIA VISUAL TOTAL (CEGOS / Apoiados por Leitura Sintetica)
+- Como o sistema auxilia: Pessoas cegas utilizam "Leitores de Tela" (como NVDA ou VoiceOver) que traduzem e verbalizam a estrutura logica (DOM) da pagina HTML em fluxo de audio.
+- Especificacoes aplicadas: O sistema emprega hierarquias limpas (<label>) conectadas por IDs aos campos. Micro-interacoes e icones meramente decorativos (como redes sociais ou botoes de navegacao secundarios) contam agora com os atributos mestres do protocolo ARIA (aria-label, aria-hidden e aria-expanded). Isso permite que o leitor de tela verbalize de forma organica e contextual "qual é" a acao selecionada, impedindo o programa de quebrar ao esbarrar em imagens secas ou Javascripts mutos.
+
+2. ALUNOS COM BAIXA VISAO E DALTONISMO SEVERO
+- Como o sistema auxilia: Academicos portadores de fotofobia, catarata ou daltonismo nao conseguem discernir botoes e operacoes em interfaces legadas de baixo nivel de contraste de luz.
+- Especificacoes aplicadas: A introducao das Variaveis de Tema Globais (os Tokens em :root CSS). A tokenizacao garantiu a producao simultanea no TCC das versoes imaculadas de Auto-Contraste Limpo (Os arquivos "_light.html") e padroniza os botoes do ecossistema. Esse gerenciamento garante o descanso ocular imediato na alternancia de temas, viabilizando o uso universitario sem quebra de acessibilidade.
+
+3. ALUNOS COM RESTRICAO MOTORA FINA (Tremores e Espasmos)
+- Como o sistema auxilia: Pessoas com espasmos fisicos, problemas atritais nos dedos doencas cronicas como Parkinson (ou quem esta sujeito a balancos inconstantes dos transportes regionais pre-universitarios) possuem limitacao severa ao tentar acertar hiperlinks estreitos no display dos smartphones, gerando o frustrante "Miss-click" onde a acao e fechada intermitentemente pelo clique errado de bordas.
+- Especificacoes aplicadas: Todas as margens sensiveis (Cards e Forms) foram redimensionadas seguindo o padrao de ouro mobile "Touch-Target Seguro". Padronizamos botoes em inves de links curtos, forcando dimensoes e areas de clique (Padding e Hit Boxes com altura proxima/superior a 44px).
+
+4. USUARIOS EXCLUSIVOS DE TECLADO / HARDWARE ASSISTIVO ALTERNATIVO
+- Como o sistema auxilia: Acidentados, Pessoas com deficiencias superiores multiplas ou usuarios de Hastes Bucais de Toque, dispensam e abandonam a operacao dinamica e exata pautada pelo mouse. Para eles, a internet e operada atraves dos saltos lineares e preditivos guiados estritamente pela tecla basilar [TAB].
+- Especificacoes aplicadas: O trunfo fundamental da adequacao via CSS moderno que rastreia os saltos de periferico (uso global obrigatorio das propriedades nativas de outline emuladas no mapeamento em tela ":focus-visible" sob o formulario e nas Navbars). Todo salto logico de input da Unitins dispara uma confirmacao visual ativa para fora do container do componente (como uma margem de seguranca azul e vibrante). A caixa brilha garantido que o operario jamais se perca dimensionalmente.

@@ -1,0 +1,58 @@
+BIBLIOTECA DE COMPONENTES: DESIGN SYSTEM UNITINS
+
+Esta e a listagem tecnica isolada dos macro e micro-componentes criados transversalmente e aplicados nas refatoracoes das paginas (SIBUNI, iProtocolo e Login do Portal). Elas servem de inventario para a estruturacao do TCC na fase de Desenvolvimento / Prototipagem.
+
+--------------------------------------------------------------------------------
+1. MACRO-COMPONENTES ESTRUTURAIS (LAYOUT BASE)
+Sao os alicerces que envelopam as aplicacoes, garantindo que o portal seja reconhecido instantaneamente independente de qual a sub-pagina acessada.
+
+* Sticky Glassmorphism Navbar (Barra de Navegacao)
+  - Onde atua: Topo global de todas as paginas geradas.
+  - Funcao: Cabecalho flutuante que nao some no scroll. Utiliza a propriedade de desfoque (backdrop-filter) para elegancia. Engloba de forma nativa o botao universal de alternancia de thema (Light/Dark Mode) e incorpora icones sociais com propriedades aria-label invisiveis para acessibilidade.
+
+* Semantic Breadcrumb (Trilha de Navegacao)
+  - Onde atua: Logo abaixo do Navbar nas telas internas (ex: iProtocolo).
+  - Funcao: Componente de trilha em formato de capsula com separadores graficos (Chevrons). Roteia a jornada do aluno de volta a pagina mae mantendo estrita conformidade com rastreadores da web usando aria-current.
+
+* Premium Grid Footer (Rodape)
+  - Onde atua: Rodape global de todas as paginas.
+  - Funcao: Um bloco desenhado puramente com CSS Grid sob a lei do "Mobile-First". Padroniza a exibicao corporativa em 3 colunas independentes (Atendimento, Certificacoes/e-MEC e Executivo), desabando simetricamente sem quebrar telas menores.
+
+--------------------------------------------------------------------------------
+2. COMPONENTES DE UI E INTERACAO (MICRO-ESTRUTURAS)
+Elementos de montagem que o usuario manipula ativamente com o mouse ou o dedo (telas touchscreen).
+
+* Action & Access Cards (Cartoes de Acao)
+  - Onde atua: Painel principal do iProtocolo e grade de acessos centrais do SIBUNI.
+  - Funcao: Cartoes interativos que agrupam hiperlinks soltos. Recebem sombras responsivas que levitam suavemente. Suportam o modo Highlight (gradiente de energia amarela/laranja) para forcar o foco da visao humana num chamado primario.
+
+* Accessible Accordion (Sanfonas de Conteudo)
+  - Onde atua: Secao de Tutoriais (Login) e listas verticais de FAQ (iProtocolo).
+  - Funcao: Componente vital de organizacao de conteudos densos. Injeta matematicamente os controladores virtuais aria-expanded e aria-hidden na montagem DOM para alertar sistemas de deficiencia visual no ato do clique (sem quebrar a estetica de quem enxerga perfeitamente).
+
+* Nav-Pills (Menu Deslizante Horizontal)
+  - Onde atua: Menu de recursos do SIBUNI moderno.
+  - Funcao: Transmuta links imensos de regulamentacoes em pilulas textuais dispostas em uma fita horizontal arrastavel da esquerda pra direita. Libera quase 70% do espaco vertical util em displays de celulares estreitos.
+
+--------------------------------------------------------------------------------
+3. COMPONENTES DE FORMULARIO (FORMS & INPUTS)
+Os pontos criticos e frageis de contato, coleta de dados e interface operacional.
+
+* Accessible Form Group e Floating Input
+  - Onde atua: Caixas de digitacao de Email/Senha do Portal de Login e Barra de Pesquisa nativa do SIBUNI.
+  - Funcao: Institui o emparelhamento restrito da tag de acessibilidade de "label" atrelada ao "id" do input. Assegura hit-boxes (areas tocaveis) mais espessas e adota pseudo-classes de rastreio visivel (foco forte azul para a minoria de alunos que navega dependendo da tecla TAB).
+
+* Password Visibility Toggle (Interruptor dinamico de Senha)
+  - Onde atua: Formulario central de login e autenticacao universitaria.
+  - Funcao: Icone dinamico interno com gatilho veloz para alterar o input de oculto para exibicao (texto). Alivia e derruba as metricas psicologicas do "Medo" associado a digitacao de traquejos as cegas em teclados virtuais sem confirmacao tatil.
+
+* News Gradient Covers (Capas de Gradiente Modular para Noticiario)
+  - Onde atua: Rodape de cards de noticias e comunicados oficiais do SIBUNI.
+  - Funcao: Modulo de fall-back que bloqueia a quebra cruel do layout de grade front-end caso uma postagem nao contenha capa gerada via JPG. Aplica recortes geometricos coloridos autonomos, nivelando o site o ano inteiro.
+
+--------------------------------------------------------------------------------
+4. DESIGN TOKENS (O MOTOR SILENCIOSO DO SISTEMA)
+
+* Theming Variables (Variaveis Raiz CSS)
+  - Onde atua: No coracao do framework (CSS :root) que dita toda a unidade.
+  - Funcao: E o controle master que hospeda chaves limpas (ex: primary-blue). E este arquivo que permite a equipe automatizar High-Contrast governamental no piscar de um botao, ou desdobrar toda a interface num Light Mode impecavel e instantaneo nos 4 campi sem alterar a engenharia das caixas HTML.

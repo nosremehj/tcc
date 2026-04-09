@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Aluno - Login - Unitins</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Background image with dark blue overlay as requested */
+            background: linear-gradient(rgba(0, 60, 130, 0.85), rgba(0, 60, 130, 0.85)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #212529;
+        }
+
+        .login-container {
+            background-color: #fff;
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            padding: 35px 30px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container h1 {
+            font-size: 32px;
+            color: #0b3769;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .logo-container h1 i {
+            color: #f7a82c;
+            font-size: 40px;
+            margin-right: 15px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            margin-top: 0;
+            color: #212529;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #495057;
+            margin-bottom: 25px;
+            margin-top: 0;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .input-group input:focus {
+            border-color: #86b7fe;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .forgot-password a, .help-links a {
+            color: #0d6efd;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .forgot-password a:hover, .help-links a:hover {
+            text-decoration: underline;
+        }
+
+        .help-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .btn-entrar {
+            width: 100%;
+            background-color: #003c82;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-bottom: 30px;
+        }
+
+        .btn-entrar:hover {
+            background-color: #002a5c;
+        }
+
+        /* Accordion */
+        .accordion {
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 15px;
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .accordion-header.active {
+            background-color: #e7f1ff;
+            color: #0c63e4;
+            border-bottom: 1px solid #ced4da;
+            font-weight: 500;
+        }
+
+        .accordion-content {
+            display: none;
+            background-color: white;
+            flex-direction: column;
+        }
+
+        .accordion-content.show {
+            display: flex;
+        }
+
+        .accordion-content a {
+            padding: 12px 15px;
+            color: #0d6efd;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background-color 0.15s;
+        }
+
+        .accordion-content a i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .accordion-content a:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-content a:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: white;
+            font-size: 0.85rem;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Accessibility Bar */
+        .accessibility-toolbar {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            z-index: 20;
+        }
+
+        .access-btn {
+            background-color: #0d6efd;
+            color: white;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2px;
+            border-radius: 6px 0 0 6px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: background-color 0.2s;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .access-btn:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo-container">
+            <!-- Utilizing the Unitins icon/logo concept from the original iprotocolo HTML -->
+            <h1><i class="fas fa-user-circle"></i> UNITINS</h1>
+        </div>
+        
+        <h5 class="title">Portal do Aluno</h5>
+        <p class="subtitle">Acesse utilizando seu e-mail institucional:</p>
+        
+        <form onsubmit="event.preventDefault();">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="E-mail (@unitins.br)" required>
+            </div>
+            
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Senha" required>
+            </div>
+            
+            <div class="forgot-password">
+                <a href="#">Esqueci minha senha</a>
+            </div>
+            
+            <div class="help-links">
+                <a href="#">Preciso de Ajuda</a>
+                <a href="#"><i class="fas fa-graduation-cap"></i> AVA (Turmas 2001-2008)</a>
+            </div>
+            
+            <button type="submit" class="btn-entrar">Entrar</button>
+        </form>
+        
+        <div class="accordion">
+            <button class="accordion-header" onclick="toggleAccordion()" type="button">
+                Acesse nossos Tutoriais e Links Úteis
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="accordion-content">
+                <a href="#"><i class="fas fa-info-circle"></i> Primeiro acesso ou problemas de acesso</a>
+                <a href="#"><i class="fas fa-key"></i> Esqueci a senha ou quero trocá-la</a>
+                <a href="#"><i class="fas fa-tools"></i> Como utilizar as ferramentas do Educ@</a>
+                <a href="#"><i class="fas fa-book"></i> Guia Prático do Acadêmico</a>
+                <a href="#"><i class="fas fa-file-alt"></i> Manual do Acadêmico</a>
+                <a href="#"><i class="fas fa-book-reader"></i> SIBUNI - Sistema Integrado de Bibliotecas</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Bar -->
+    <div class="accessibility-toolbar">
+        <a href="#" class="access-btn" title="Libras Menu"><i class="fas fa-sign-language"></i></a>
+        <a href="#" class="access-btn" title="Accessibility Options"><i class="fas fa-universal-access"></i></a>
+    </div>
+
+    <!-- Footer Area -->
+    <div class="footer">
+        <p>2026 - <a href="#">Unitins</a> - Todos os direitos reservados.</p>
+        <p>Desenvolvido pela Diretoria de Tecnologia da Informação</p>
+    </div>
+
+    <script>
+        function toggleAccordion() {
+            const header = document.querySelector('.accordion-header');
+            const content = document.querySelector('.accordion-content');
+            const icon = header.querySelector('i.fas.fa-chevron-down, i.fas.fa-chevron-up');
+            
+            header.classList.toggle('active');
+            content.classList.toggle('show');
+            
+            if (header.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+</body>
+</html>

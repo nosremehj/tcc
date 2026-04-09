@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Infográfico de Melhorias - TCC Unitins</title>
+    <!-- FontAwesome & Phosphor Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0A2540;
+            --primary-yellow: #FFB100;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E2E8F0;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #1E293B;
+            padding-bottom: 80px; /* espaco pro final */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+        }
+        
+        .header h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .comparison-container {
+            display: flex;
+            gap: 60px;
+            width: 100%;
+            max-width: 1400px;
+            justify-content: center;
+        }
+
+        .showcase-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 500px;
+            position: relative;
+        }
+
+        .column-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #334155;
+            background: white;
+            padding: 10px 30px;
+            border-radius: 99px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* --- STYLES DO CARD ANTIGO --- */
+        .old-card h5.old-title { text-align: center; font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; margin-top: 0; color: #212529; font-family: 'Segoe UI', Arial, sans-serif;}
+        .old-card p.old-sub { text-align: center; font-size: 0.95rem; color: #495057; margin-bottom: 25px; margin-top: 0; font-family: 'Segoe UI', Arial, sans-serif;}
+        .old-input-group { position: relative; margin-bottom: 20px; font-family: 'Segoe UI', Arial, sans-serif;}
+        .old-input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #6c757d; font-size: 1.1rem; }
+        .old-input-group input { width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        .old-btn { width: 100%; background-color: #003c82; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 1.1rem; font-weight: 500; margin-bottom: 30px; font-family: 'Segoe UI', Arial, sans-serif;}
+        .old-links { display: flex; justify-content: space-between; font-size: 0.85rem; color: #0d6efd; margin-bottom: 25px; font-family: 'Segoe UI', Arial, sans-serif;}
+
+        /* --- STYLES DO CARD MODERNO --- */
+        .modern-card h2.mod-title { font-family: 'Outfit', sans-serif; color: var(--primary-blue); font-size: 2rem; margin: 0 0 0.5rem 0; text-align: center;}
+        .modern-card p.mod-sub { color: #4B5563; font-size: 1rem; text-align: center; margin: 0 0 2rem 0;}
+        .mod-form-group { margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; position: relative;}
+        .mod-label { font-weight: 600; color: #1F2937; font-size: 0.95rem; }
+        .mod-input-wrapper { position: relative; display: flex; align-items: center; }
+        .mod-input-wrapper i.prefix { position: absolute; left: 1rem; color: #4B5563; font-size: 1.2rem; }
+        .mod-input { width: 100%; padding: 0.9rem 1rem 0.9rem 3rem; border: 1px solid rgba(10,37,64,0.2); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #1F2937; background: transparent; }
+        .mod-input:focus { border-color: #3B82F6; outline: 3px solid #60A5FA; }
+        .mod-eye { position: absolute; right: 0.5rem; background: transparent; border: none; color: #4B5563; padding: 0.5rem; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
+        .mod-btn { width: 100%; background: var(--primary-blue); color: white; border: none; padding: 1.1rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; box-shadow: 0 4px 10px rgba(10,37,64,0.2); margin-top: 10px;}
+        .mod-links { display: flex; justify-content: space-between; font-size: 0.95rem; color: var(--primary-blue); font-weight: 500; margin: 15px 0; padding-top: 15px; border-top: 1px solid #E5E7EB;}
+        .mod-links span { padding: 8px 0; } 
+
+        /* --- ANNOTATIONS --- */
+        .annotation {
+            position: absolute;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+            border: 2px solid white;
+            white-space: nowrap;
+        }
+        
+        .annotation::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+        }
+
+        /* Cores das Anotacoes */
+        .ann-green { background: #10B981; }
+        .ann-green::after { background: #10B981; }
+        .ann-blue { background: #3B82F6; }
+        .ann-blue::after { background: #3B82F6; }
+        .ann-red { background: #EF4444; }
+        .ann-red::after { background: #EF4444; }
+
+        /* Setas do Formulario */
+        .ann-label { right: -220px; top: 120px; } .ann-label::after { left: -6px; top: 10px; }
+        .ann-eye { right: -250px; top: 215px; } .ann-eye::after { left: -6px; top: 10px; }
+        .ann-touch { right: -290px; bottom: 85px; } .ann-touch::after { left: -6px; top: 10px; }
+        .ann-focus { left: -210px; top: 145px;} .ann-focus::after { right: -6px; top: 10px; }
+        .ann-error-label { left: -240px; top: 120px; } .ann-error-label::after { right: -6px; top: 10px; }
+        .ann-error-touch { left: -250px; bottom: 45px; } .ann-error-touch::after { right: -6px; top: 10px; }
+
+        /* Setas de Macro-Components */
+        .ann-macro-nav { top: -20px; right: 20px; } 
+        .ann-macro-nav::after { bottom: -6px; right: 20px; }
+        .ann-macro-bread { top: -20px; left: 20px; }
+        .ann-macro-bread::after { bottom: -6px; left: 20px; }
+        .ann-macro-footer { top: -20px; left: 50%; transform: translateX(-50%); }
+        .ann-macro-footer::after { bottom: -6px; left: 50%; transform: translateX(-50%); }
+
+        /* Helpers */
+        .macro-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 30px;
+        }
+
+        .showcase-box {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- SESSÃO 1: COMPARAÇÃO DO CARD PRINCIPAL -->
+    <div class="header">
+        <h1>Análise de Conformidade e Acessibilidade (A11y)</h1>
+        <p>Evolução da Interface de Login do Portal Acadêmico</p>
+    </div>
+
+    <div class="comparison-container">
+        
+        <div class="showcase-column">
+            <div class="column-title" style="color: #EF4444;"><i class="fa-solid fa-xmark"></i> Modelo Original</div>
+            
+            <div class="card-container old-card">
+                
+                <div class="annotation ann-red ann-error-label"><i class="fa-solid fa-triangle-exclamation"></i> Falta de Tag &lt;label&gt;<br><small style="font-weight:400;">Prejudicial para leitores de tela</small></div>
+                <div class="annotation ann-red ann-error-touch"><i class="fa-solid fa-compress"></i> Área de Toque Diminuta<br><small style="font-weight:400;">Links difíceis de clicar no celular</small></div>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <i class="fas fa-user-circle" style="color: #f7a82c; font-size: 35px;"></i>
+                    <span style="font-size: 24px; color: #0b3769; font-weight: bold;"> UNITINS</span>
+                </div>
+                
+                <h5 class="old-title">Portal do Aluno</h5>
+                <p class="old-sub">Acesse utilizando seu e-mail institucional:</p>
+                
+                <div class="old-input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="E-mail (@unitins.br)">
+                </div>
+                
+                <div class="old-input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Senha">
+                </div>
+                
+                <div style="text-align: right; font-size: 0.85rem; color: #0d6efd; margin-bottom: 15px;">Esqueci minha senha</div>
+                
+                <div class="old-links">
+                    <span>Preciso de Ajuda</span>
+                    <span><i class="fas fa-graduation-cap"></i> AVA (Turmas 2001-2008)</span>
+                </div>
+                
+                <button type="button" class="old-btn">Entrar</button>
+
+            </div>
+        </div>
+
+        <div class="showcase-column">
+            <div class="column-title" style="color: #10B981;"><i class="fa-solid fa-check"></i> Design System Aplicado</div>
+            
+            <div class="card-container modern-card">
+
+                <div class="annotation ann-blue ann-focus"><i class="ph-bold ph-cursor"></i> Rastreamento Visível<br><small style="font-weight:400;">Foco Outline ativo no CSS HTML5</small></div>
+                <div class="annotation ann-green ann-label"><i class="ph-bold ph-text-aa"></i> Label Explícita Implementada<br><small style="font-weight:400;">WCAG Compliant (Acessível via Áudio)</small></div>
+                <div class="annotation ann-green ann-eye"><i class="ph-bold ph-eye"></i> Auxílio Visual de Segurança<br><small style="font-weight:400;">Alternar visibilidade de Senha (UX)</small></div>
+                <div class="annotation ann-green ann-touch"><i class="ph-bold ph-hand-tap"></i> Zonas de Toque Padronizadas<br><small style="font-weight:400;">Espaçamento (Padding) Seguro (44px min)</small></div>
+
+                <h2 class="mod-title">Portal do Aluno</h2>
+                <p class="mod-sub">Acesse com seu e-mail institucional</p>
+
+                <div class="mod-form-group">
+                    <label class="mod-label">E-mail Institucional</label>
+                    <div class="mod-input-wrapper">
+                        <i class="ph ph-envelope-simple prefix"></i>
+                        <input type="text" class="mod-input" placeholder="exemplo@unitins.br" style="outline: 3px solid #93C5FD; border-color: #3B82F6;">
+                    </div>
+                </div>
+
+                <div class="mod-form-group">
+                    <label class="mod-label">Senha</label>
+                    <div class="mod-input-wrapper">
+                        <i class="ph ph-lock prefix"></i>
+                        <input type="password" class="mod-input" placeholder="Insira sua senha">
+                        <button class="mod-eye"><i class="ph ph-eye"></i></button>
+                    </div>
+                </div>
+
+                <div style="text-align: right; margin-bottom: 20px;">
+                    <span style="color: var(--primary-blue); font-weight: 500; font-size: 0.95rem;">Esqueci minha senha</span>
+                </div>
+
+                <button class="mod-btn">Entrar no Portal</button>
+
+                <div class="mod-links">
+                    <span style="background: rgba(59, 130, 246, 0.1); border-radius: 4px; padding: 10px 15px;"><i class="ph ph-question"></i> Preciso de Ajuda</span>
+                    <span style="background: rgba(59, 130, 246, 0.1); border-radius: 4px; padding: 10px 15px;"><i class="ph ph-graduation-cap"></i> AVA (2001-2008)</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <hr style="width: 100%; max-width: 1400px; border: none; border-top: 1px solid #CBD5E1; margin: 60px 0;">
+
+    <!-- SESSÃO 2: MACRO-COMPONENTES -->
+    <div class="header" style="margin-bottom: 30px;">
+        <h2>Evolução Estrutural com Design System</h2>
+        <p>Padronização de Macro-Componentes Transversais (Navbar, Breadcrumbs e Footer)</p>
+    </div>
+
+    <div class="macro-container">
+
+        <!-- Navbar Showcase -->
+        <div class="showcase-box">
+            <div class="annotation ann-green ann-macro-nav">
+                <i class="ph-bold ph-faders"></i> Navbar Otimizada<br>
+                <small style="font-weight:400;">Glassmorphism fixo e Ícones Sociais com <i>aria-label</i></small>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.95); border: 1px solid #E5E7EB; border-radius: 8px;">
+                <div style="font-family: 'Outfit'; font-size: 1.5rem; color: #0A2540; font-weight: 700; display:flex; align-items:center;">
+                    <i class="fas fa-user-circle" style="color: #FFB100; margin-right: 10px; font-size:2rem;"></i> UNITINS
+                </div>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <i class="ph ph-instagram-logo" style="color: #6B7280; font-size: 1.5rem;"></i>
+                    <i class="ph ph-facebook-logo" style="color: #6B7280; font-size: 1.5rem;"></i>
+                    <button style="background: #0A2540; color: white; padding: 10px 20px; border-radius: 99px; border: none; font-weight: 600; font-size: 1rem;"><i class="ph ph-moon" style="margin-right:5px;"></i> Tema Escuro</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumb Showcase -->
+        <div class="showcase-box">
+            <div class="annotation ann-blue ann-macro-bread">
+                <i class="ph-bold ph-navigation-arrow"></i> Trilha de Localização<br>
+                <small style="font-weight:400;">Semântica HTML5 com flag <i>aria-current="page"</i></small>
+            </div>
+            
+            <div style="padding: 20px 30px; background: #F8FAFC; border-radius: 8px; font-size: 1.1rem; color: #64748B; display: flex; align-items: center; gap: 15px; border: 1px solid #E5E7EB;">
+                <span style="color: #3B82F6; font-weight: 500;">Página Inicial</span> 
+                <i class="ph-bold ph-caret-right"></i>
+                <span style="color: #3B82F6; font-weight: 500;">Aluno</span> 
+                <i class="ph-bold ph-caret-right"></i>
+                <span style="color: #0F172A; font-weight: 600;">Login - Portal do Aluno</span> 
+            </div>
+        </div>
+
+        <!-- Footer Showcase -->
+        <div class="showcase-box" style="background: #0A2540; border-radius: 12px; padding: 50px;">
+            <div class="annotation ann-green ann-macro-footer">
+                <i class="ph-bold ph-columns"></i> Footer Baseado em Cards<br>
+                <small style="font-weight:400;">Distribuição CSS Grid assíncrona reduzindo fadiga mental do usuário (UX)</small>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 50px; color: white; font-size: 1rem;">
+                <!-- Coluna 1 -->
+                <div>
+                    <h4 style="color: #FFB100; font-family: 'Outfit'; margin: 0 0 20px 0; font-size: 1.3rem;">Atendimento</h4>
+                    <div style="display: flex; flex-direction: column; gap: 15px; color: rgba(255,255,255,0.8);">
+                        <span><i class="ph ph-chat-circle"></i> Ouvidoria Unitins</span>
+                        <span><i class="ph ph-phone"></i> 162 Ouvidoria Geral</span>
+                    </div>
+                </div>
+                <!-- Coluna 2 -->
+                <div>
+                    <h4 style="color: #FFB100; font-family: 'Outfit'; margin: 0 0 20px 0; font-size: 1.3rem;">Certificação</h4>
+                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Unitins_eMEC&color=1A3C65&bgcolor=FFF" style="width: 50px; height: 50px; background: white; border-radius: 4px;" alt="QR">
+                        <div>
+                            <strong style="display: block;">Sistema e-MEC</strong>
+                            <span style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">Cadastro Oficial Ativo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coluna 3 -->
+                <div style="text-align: right;">
+                    <h4 style="color: #FFB100; font-family: 'Outfit'; margin: 0 0 20px 0; font-size: 1.3rem;">Contato Executivo</h4>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6; margin:0;">
+                        108 sul Alameda 11 Lote 03<br>Palmas-TO<br>
+                        <strong style="color: #FFB100; font-size: 1.2rem; display: block; margin-top: 5px;">(63) 3901-4000</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

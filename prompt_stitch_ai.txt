@@ -1,0 +1,19 @@
+Você é um Arquiteto de Design System e Engenheiro de UX Sênior. 
+A UNITINS (Universidade Estadual do Tocantins) tem três plataformas distintas que possuem identidades visuais desconexas. O objetivo não é copiar o que eles têm agora, mas analisar a FUNCIONALIDADE dessas páginas e criar um NOVO Design System unificado, moderno, acessível (WCAG AA) e de alto padrão (Premium Aesthetic) que possa atender aos três cenários.
+
+As plataformas que devem ser unificadas sob este novo sistema são:
+1. Portal do Aluno (Login e fluxos de senha): https://www.unitins.br/PortalAluno/Account/Login?ReturnUrl=%2fPortalAluno
+2. iProtocolo (Dashboard Administrativo e Gestão de Documentos): https://www.unitins.br/iprotocolo/
+3. SIBUNI (Sistema Integrado de Bibliotecas, Busca e Catálogo): https://www.unitins.br/nPortal/sibuni
+
+Métricas e requisitos para a sua arquitetura UX:
+- CORE COMPONENTS: Crie os tokens e definições para Componentes Essenciais que suprem esses 3 ecossistemas: Cards de livros (para SIBUNI), Inputs sofisticados de validação (para o Login), Datatables/Listas e Badges de status de Requerimento (para o iProtocolo).
+- TOKENS FUNDACIONAIS: Estabeleça uma paleta de cores moderna (utilizando a cor base #004D99 como inspiração, mas modernizada para interfaces), hierarquia tipográfica (sugiro a família 'Inter' ou 'Plus Jakarta Sans'), espaçamentos e radii (border-radius).
+- MODOS: O sistema deve contemplar referências para Light Mode, permitindo o uso pontual de Glassmorphism.
+
+ENTREGA:
+Por favor, descreva em formato de documentação estruturada:
+1. Tokens de Cores, Tipografia, Espaçamento e Sombras (Defina o Design Token System).
+2. Estrutura CSS/Variáveis (CSS Variables) fundamentais desse Design System.
+3. Component Library Specification: Detalhe como deve ser o componente "Button", o componente "Input", o componente "Card" e o "Status Badge".
+4. Após isso, gere o código base (HTML/CSS) de um "Container de Layout" que seria o Padrão Ouro para usar em qualquer um desses 3 sistemas.

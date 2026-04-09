@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIBUNI Premium - Bibliotecas UNITINS</title>
-    <meta name="description" content="Sistema Integrado de Bibliotecas da Universidade Estadual do Tocantins â€” acervo bibliogrÃ¡fico, e-books e repositÃ³rio digital.">
+    <meta name="description" content="Sistema Integrado de Bibliotecas da Universidade Estadual do Tocantins â€” acervo bibliográfico, e-books e repositório digital.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
             --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (max-width: 0px) {
             :root {
                 --primary-blue: #60A5FA;
                 --text-dark: #F3F4F6;
@@ -85,7 +85,7 @@
             gap: 0.4rem;
         }
 
-        @media (prefers-color-scheme: dark) { .nav-brand h1 { color: #fff; } }
+        @media (max-width: 0px) { .nav-brand h1 { color: #fff; } }
 
         .nav-search {
             flex: 1;
@@ -160,7 +160,7 @@
 
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(10,37,64,0.3); }
 
-        @media (prefers-color-scheme: dark) { .btn-primary { background: #3B82F6; } }
+        @media (max-width: 0px) { .btn-primary { background: #3B82F6; } }
 
         /* ===== HERO ===== */
         .hero {
@@ -297,7 +297,7 @@
         .nav-pills a:hover { color: var(--text-dark); border-bottom-color: var(--primary-yellow); }
         .nav-pills a.active { color: var(--primary-blue); border-bottom-color: var(--primary-blue); }
 
-        @media (prefers-color-scheme: dark) { .nav-pills a.active { color: #60A5FA; border-bottom-color: #60A5FA; } }
+        @media (max-width: 0px) { .nav-pills a.active { color: #60A5FA; border-bottom-color: #60A5FA; } }
 
         /* ===== MAIN ===== */
         .main-content {
@@ -413,7 +413,7 @@
 
         .access-card.highlight p { color: rgba(255,255,255,0.85); }
 
-        @media (prefers-color-scheme: dark) { .card-icon { color: #60A5FA; } }
+        @media (max-width: 0px) { .card-icon { color: #60A5FA; } }
 
         /* PRESENTATION SECTION */
         .presentation-section {
@@ -459,7 +459,7 @@
             border: 1px solid rgba(10,37,64,0.1);
         }
 
-        @media (prefers-color-scheme: dark) {
+        @media (max-width: 0px) {
             .campus-tag { background: rgba(96,165,250,0.1); color: #60A5FA; border-color: rgba(96,165,250,0.2); }
         }
 
@@ -480,7 +480,7 @@
 
         .btn-guide:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10,37,64,0.3); }
 
-        @media (prefers-color-scheme: dark) { .btn-guide { background: #3B82F6; } }
+        @media (max-width: 0px) { .btn-guide { background: #3B82F6; } }
 
         .presentation-visual {
             background: linear-gradient(135deg, #0A2540, #1A3C65);
@@ -648,7 +648,7 @@
             width: fit-content;
         }
 
-        @media (prefers-color-scheme: dark) { .news-tag { background: rgba(96,165,250,0.1); color: #60A5FA; } }
+        @media (max-width: 0px) { .news-tag { background: rgba(96,165,250,0.1); color: #60A5FA; } }
 
         .news-card-title {
             font-size: 0.9rem;
@@ -670,7 +670,7 @@
 
         .news-card:hover .news-card-link { gap: 0.5rem; }
 
-        @media (prefers-color-scheme: dark) { .news-card-link { color: #60A5FA; } }
+        @media (max-width: 0px) { .news-card-link { color: #60A5FA; } }
 
         /* SERVICE BAR */
         .service-bar {
@@ -777,11 +777,9 @@
 
         .copyright {
             text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
+            padding-top: 1.5rem; margin-top: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5); font-size: 0.8rem;
         }
 
         /* ANIMATIONS */
@@ -817,35 +815,34 @@
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-brand-group" style="display: flex; align-items: center; gap: 15px;">
-            <div class="nav-brand-group" style="display: flex; align-items: center; gap: 15px;">
-            <a href="#" class="nav-brand" style="text-decoration:none;">
-                <h1 style="margin:0; display:flex; align-items:center; gap:8px;"><i class="fas fa-graduation-cap" style="color: var(--primary-yellow);"></i> UNITINS</h1>
-            </a>
-            <div style="height: 30px; width: 1px; background: rgba(128,128,128,0.3);"></div>
-            <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins" style="height: 28px; object-fit: contain;">
-        </div>
-            <div style="height: 30px; width: 1px; background: rgba(128,128,128,0.3);"></div>
-            <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins" style="height: 28px; object-fit: contain;">
-        </div>
+        <a href="#" class="nav-brand" style="text-decoration:none;">
+            <img src="https://www.unitins.br/uniPerfil/Logomarca/Imagem/09997c779523a61bd01bb69b0a789242" alt="Logo Unitins" style="height: 55px;">
+        </a>
+        <div style="height: 50px; width: 1px; background: rgba(128,128,128,0.3);"></div>
+        <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins" style="height: 45px; object-fit: contain;">
+    </div>
 
     <div class="nav-search">
         <i class="ph ph-magnifying-glass"></i>
         <input type="text" placeholder="Pesquisar no acervo, artigos, TCCs...">
     </div>
 
-    <div class="nav-actions">
-        <div class="social-links">
-            <i class="ph ph-instagram-logo"></i>
-            <i class="ph ph-facebook-logo"></i>
-            <i class="ph ph-youtube-logo"></i>
-            <i class="ph ph-linkedin-logo"></i>
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+        <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+            <a href="#" aria-label="Instagram" style="color: var(--text-gray);"><i class="ph ph-instagram-logo" style="font-size: 1.2rem;"></i></a>
+            <a href="#" aria-label="Facebook" style="color: var(--text-gray);"><i class="ph ph-facebook-logo" style="font-size: 1.2rem;"></i></a>
+            <a href="#" aria-label="YouTube" style="color: var(--text-gray);"><i class="ph ph-youtube-logo" style="font-size: 1.2rem;"></i></a>
+            <a href="#" aria-label="LinkedIn" style="color: var(--text-gray);"><i class="ph ph-linkedin-logo" style="font-size: 1.2rem;"></i></a>
         </div>
-        <button class="btn-modern" style="background:rgba(10,37,64,0.05);color:var(--text-dark);">
-            <i class="ph ph-globe"></i> PortuguÃªs
+        
+        <button class="btn-modern" style="background: transparent; color: var(--text-dark); border:none; display: flex; align-items: center; padding: 0.6rem 0.8rem; cursor: pointer;" onclick="window.location.href='sibuni_modern.html'" aria-label="Mudar para Tema Escuro">
+            <i class="ph ph-moon" style="font-size: 1.2rem;"></i>
         </button>
-        <button class="btn-modern btn-primary">
-            <i class="ph ph-user"></i> Entrar
-        </button>
+        
+        <select class="btn-modern" onchange="if(this.value==='en'){var f=location.pathname.split('/').pop();location.href='en/'+f;}" style="background: transparent; border: none; color: var(--text-dark); cursor: pointer;">
+            <option value="pt" style="background: var(--bg-card); color: var(--text-dark);">PT</option>
+            <option value="en" style="background: var(--bg-card); color: var(--text-dark);">EN</option>
+        </select>
     </div>
 </nav>
 
@@ -854,21 +851,21 @@
     <div class="hero-badge">
         <i class="ph-fill ph-books"></i> Sistema Integrado de Bibliotecas
     </div>
-    <h2>Sua biblioteca universitÃ¡ria,<br><span>reimaginada para vocÃª</span></h2>
-    <p>Acesse o acervo bibliogrÃ¡fico dos cÃ¢mpus de Palmas, DianÃ³polis, Araguatins e AugustinÃ³polis, alÃ©m de e-books, periÃ³dicos cientÃ­ficos e o RepositÃ³rio Digital de TCCs da UNITINS.</p>
+    <h2>Sua biblioteca universitária,<br><span>reimaginada para você</span></h2>
+    <p>Acesse o acervo bibliográfico dos câmpus de Palmas, Dianópolis, Araguatins e Augustinópolis, além de e-books, periódicos científicos e o Repositório Digital de TCCs da UNITINS.</p>
 
     <div class="hero-stats">
         <div class="hero-stat">
             <strong>4</strong>
-            <span>CÃ¢mpus Atendidos</span>
+            <span>Câmpus Atendidos</span>
         </div>
         <div class="hero-stat">
             <strong>+50mil</strong>
-            <span>TÃ­tulos no Acervo</span>
+            <span>Títulos no Acervo</span>
         </div>
         <div class="hero-stat">
             <strong>+6mil</strong>
-            <span>E-books DisponÃ­veis</span>
+            <span>E-books Disponíveis</span>
         </div>
         <div class="hero-stat">
             <strong>+2mil</strong>
@@ -880,65 +877,31 @@
 <!-- NAV PILLS -->
 <div class="nav-pills-wrapper">
     <nav class="nav-pills">
-        <a href="#" class="active"><i class="ph ph-house"></i> InÃ­cio</a>
-        <a href="#"><i class="ph ph-buildings"></i> Bibliotecas dos CÃ¢mpus</a>
+        <a href="#" class="active"><i class="ph ph-house"></i> Início</a>
+        <a href="#"><i class="ph ph-buildings"></i> Bibliotecas dos Câmpus</a>
         <a href="#"><i class="ph ph-device-tablet"></i> Biblioteca Virtual</a>
-        <a href="#"><i class="ph ph-article"></i> Ficha CatalogrÃ¡fica</a>
-        <a href="#"><i class="ph ph-graduation-cap"></i> RepositÃ³rio de TCCs</a>
-        <a href="#"><i class="ph ph-link-simple"></i> Links Ãšteis</a>
+        <a href="#"><i class="ph ph-article"></i> Ficha Catalográfica</a>
+        <a href="#"><i class="ph ph-graduation-cap"></i> Repositório de TCCs</a>
+        <a href="#"><i class="ph ph-link-simple"></i> Links Úteis</a>
     </nav>
 </div>
 
 <!-- MAIN CONTENT -->
 <main class="main-content">
 
-    <!-- Access Cards -->
-    <section style="margin-bottom:4rem; animation: slideUp 0.8s ease-out 0.2s both;">
-        <div class="section-header">
-            <h3>Acesso RÃ¡pido</h3>
-        </div>
-        <div class="access-cards">
-            <a href="#" class="access-card highlight">
-                <div class="card-icon"><i class="ph-fill ph-magnifying-glass"></i></div>
-                <h4>CatÃ¡logo Online</h4>
-                <p>Pesquise livros, periÃ³dicos e materiais do acervo fÃ­sico.</p>
-            </a>
-            <a href="#" class="access-card">
-                <div class="card-icon"><i class="ph-fill ph-device-tablet"></i></div>
-                <h4>E-books e Bases</h4>
-                <p>Acesse milhares de tÃ­tulos digitais 24h por dia.</p>
-            </a>
-            <a href="#" class="access-card">
-                <div class="card-icon"><i class="ph-fill ph-graduation-cap"></i></div>
-                <h4>RepositÃ³rio de TCCs</h4>
-                <p>Encontre trabalhos de conclusÃ£o de cursos.</p>
-            </a>
-            <a href="#" class="access-card">
-                <div class="card-icon"><i class="ph-fill ph-article"></i></div>
-                <h4>Ficha CatalogrÃ¡fica</h4>
-                <p>Solicite a ficha catalogrÃ¡fica para sua monografia.</p>
-            </a>
-            <a href="#" class="access-card">
-                <div class="card-icon"><i class="ph-fill ph-question"></i></div>
-                <h4>Perguntas Frequentes</h4>
-                <p>HorÃ¡rios, renovaÃ§Ãµes, emprÃ©stimos e mais.</p>
-            </a>
-        </div>
-    </section>
-
     <!-- Presentation Section -->
     <section class="presentation-section">
         <div class="presentation-text">
             <h3>Conhecimento que conecta<br>todo o Tocantins</h3>
-            <p>O Sistema Integrado de Bibliotecas da UNITINS (SIBUNI) alinha a gestÃ£o do acervo bibliogrÃ¡fico da InstituiÃ§Ã£o, disponibilizando suporte informacional para o desenvolvimento de atividades tÃ©cnicas, administrativas e de extensÃ£o.</p>
+            <p>O Sistema Integrado de Bibliotecas da UNITINS (SIBUNI) alinha a gestão do acervo bibliográfico da Instituição, disponibilizando suporte informacional para o desenvolvimento de atividades técnicas, administrativas e de extensão.</p>
             <div class="campus-tags">
                 <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> Palmas</span>
-                <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> DianÃ³polis</span>
+                <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> Dianópolis</span>
                 <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> Araguatins</span>
-                <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> AugustinÃ³polis</span>
+                <span class="campus-tag"><i class="ph ph-map-pin" style="font-size:0.8rem;"></i> Augustinópolis</span>
             </div>
             <a href="#" class="btn-guide">
-                <i class="ph ph-book-open"></i> Guia do UsuÃ¡rio da Biblioteca
+                <i class="ph ph-book-open"></i> Guia do Usuário da Biblioteca
             </a>
         </div>
         <div class="presentation-visual">
@@ -952,7 +915,7 @@
     <div class="vlib-banner">
         <div class="vlib-text">
             <h4>Bibliotecas Virtuais</h4>
-            <p>Acesse e-books, artigos e bases de dados cientÃ­ficas de qualquer lugar.</p>
+            <p>Acesse e-books, artigos e bases de dados científicas de qualquer lugar.</p>
         </div>
         <div class="vlib-logos">
             <div class="vlib-logo-pill"><i class="ph-fill ph-diamond"></i> Minha Biblioteca</div>
@@ -966,31 +929,31 @@
     <!-- News Section -->
     <section class="news-section">
         <div class="section-header">
-            <h3>Ãšltimas NotÃ­cias</h3>
+            <h3>Últimas Notícias</h3>
             <a href="#">Ver todas <i class="ph ph-arrow-right"></i></a>
         </div>
         <div class="news-grid">
             <a href="#" class="news-card">
-                <div class="news-card-cover cover-green">FÃ³rum de IntegraÃ§Ã£o<br>AMAZÃ”NIA GLOBAL<br>DiÃ¡logos UniversitÃ¡rios<br>12 e 14 Nov 2025</div>
+                <div class="news-card-cover cover-green">Fórum de Integração<br>AMAZÔNIA GLOBAL<br>Diálogos Universitários<br>12 e 14 Nov 2025</div>
                 <div class="news-card-body">
                     <span class="news-tag"><i class="ph-fill ph-tree" style="font-size:0.7rem;"></i> UNITINS NA COP30</span>
-                    <p class="news-card-title">Unitins apresenta projetos e reforÃ§a protagonismo no FÃ³rum de IntegraÃ§Ã£o AmazÃ´nia Global, promovido pela UEPA</p>
+                    <p class="news-card-title">Unitins apresenta projetos e reforça protagonismo no Fórum de Integração Amazônia Global, promovido pela UEPA</p>
                     <span class="news-card-link">Leia mais <i class="ph ph-arrow-right"></i></span>
                 </div>
             </a>
             <a href="#" class="news-card">
-                <div class="news-card-cover cover-blue">UNITINS NA COP 30<br>BRASIL AMAZÃ”NIA<br>BELÃ‰M 2025</div>
+                <div class="news-card-cover cover-blue">UNITINS NA COP 30<br>BRASIL AMAZÔNIA<br>BELÉM 2025</div>
                 <div class="news-card-body">
                     <span class="news-tag"><i class="ph-fill ph-tree" style="font-size:0.7rem;"></i> UNITINS NA COP30</span>
-                    <p class="news-card-title">Unitins participa de painÃ©is sobre saÃºde, meio ambiente e direitos humanos no segundo dia de programaÃ§Ã£o da COP30</p>
+                    <p class="news-card-title">Unitins participa de painéis sobre saúde, meio ambiente e direitos humanos no segundo dia de programação da COP30</p>
                     <span class="news-card-link">Leia mais <i class="ph ph-arrow-right"></i></span>
                 </div>
             </a>
             <a href="#" class="news-card">
-                <div class="news-card-cover cover-blue">UNITINS NA COP 30<br>BRASIL AMAZÃ”NIA<br>BELÃ‰M 2025</div>
+                <div class="news-card-cover cover-blue">UNITINS NA COP 30<br>BRASIL AMAZÔNIA<br>BELÉM 2025</div>
                 <div class="news-card-body">
                     <span class="news-tag"><i class="ph-fill ph-tree" style="font-size:0.7rem;"></i> UNITINS NA COP30</span>
-                    <p class="news-card-title">Unitins leva delegaÃ§Ã£o para a COP 30 e participa de agenda na Green Zone, Blue Zone e no FÃ³rum de IntegraÃ§Ã£o da AmazÃ´nia Global</p>
+                    <p class="news-card-title">Unitins leva delegação para a COP 30 e participa de agenda na Green Zone, Blue Zone e no Fórum de Integração da Amazônia Global</p>
                     <span class="news-card-link">Leia mais <i class="ph ph-arrow-right"></i></span>
                 </div>
             </a>
@@ -998,7 +961,7 @@
                 <div class="news-card-cover cover-gray"><i class="ph-fill ph-music-note" style="font-size:2.5rem;opacity:0.6;"></i></div>
                 <div class="news-card-body">
                     <span class="news-tag"><i class="ph-fill ph-flask" style="font-size:0.7rem;"></i> SCTI 2025</span>
-                    <p class="news-card-title">Oficina Bunitins une mÃºsica e sustentabilidade no IX ColÃ³quio Interdisciplinar da Unitins</p>
+                    <p class="news-card-title">Oficina Bunitins une música e sustentabilidade no IX Colóquio Interdisciplinar da Unitins</p>
                     <span class="news-card-link">Leia mais <i class="ph ph-arrow-right"></i></span>
                 </div>
             </a>
@@ -1007,41 +970,32 @@
 
 </main>
 
-<!-- SERVICE BAR -->
-<div class="service-bar">
-    <div class="service-bar-inner">
-        <button class="service-chip"><i class="ph ph-chat-circle-dots"></i> Ouvidoria UNITINS</button>
-        <button class="service-chip"><i class="ph ph-phone"></i> 162 â€” Ouvidoria Geral</button>
-        <button class="service-chip"><i class="ph ph-info"></i> Acesso Ã  InformaÃ§Ã£o</button>
-        <button class="service-chip"><i class="ph ph-chart-bar"></i> Portal da TransparÃªncia</button>
-    </div>
-</div>
-
 <!-- FOOTER -->
-<footer class="footer" style="background: var(--secondary-blue); color: white; padding: 4rem 3rem 1.5rem; margin-top: auto;">
+<footer class="footer" style="background: var(--secondary-blue); color: white; padding: 2.5rem 3rem 1rem; margin-top: auto;">
         <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
             <div class="footer-col">
-                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">Atendimento ao AcadÃªmico</h4>
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.1rem; margin-bottom: 1rem;">Atendimento ao Acadêmico</h4>
                 <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
                     <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chat-circle" style="font-size: 1.2rem;"></i> Ouvidoria Institucional</a>
                     <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="font-size: 1.2rem;"></i> Central 162 Ouvidoria Geral</a>
-                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="font-size: 1.2rem;"></i> Fale Conosco Online</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info" style="font-size: 1.2rem;"></i> Acesso à Informação</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chart-bar" style="font-size: 1.2rem;"></i> Portal da Transparência</a>
                 </div>
             </div>
             
             <div class="footer-col">
-                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">CertificaÃ§Ã£o AcadÃªmica</h4>
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.1rem; margin-bottom: 1rem;">Certificação Acadêmica</h4>
                 <div class="seal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Unitins_eMEC&color=1A3C65&bgcolor=FFF" alt="QR Code MEC" style="width: 50px; height: 50px; background: white; border-radius: 6px; padding: 2px;">
                     <div style="display: flex; flex-direction: column;">
                         <strong style="color: white; font-size: 1rem;">Sistema e-MEC</strong>
-                        <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">InstituiÃ§Ã£o Credenciada Ativa</span>
+                        <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Instituição Credenciada Ativa</span>
                     </div>
                 </div>
             </div>
 
             <div class="footer-col" style="text-align: right;">
-                <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins - RodapÃ©" style="height: 40px; opacity: 0.8; filter: brightness(0) invert(1); margin-bottom: 15px;">
+                
                 <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 10px;">Sede Administrativa</h4>
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; margin: 0;">
                     108 sul Alameda 11 Lote 03<br>
@@ -1052,8 +1006,8 @@
                 </strong>
             </div>
         </div>
-        <div class="copyright" style="text-align: center; padding-top: 3rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem;">
-            <p>&copy; 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto AcadÃªmico TCC.</p>
+        <div class="copyright" style="text-align: center; padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.9rem;">
+            <p>&copy; 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto Acadêmico TCC.</p>
         </div>
     </footer>
 

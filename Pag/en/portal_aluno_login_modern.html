@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal do Aluno - Login Moderno (AcessÃ­vel) - UNITINS</title>
+    <title>Student Portal - Login Moderno (Acessível) - UNITINS</title>
     <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
             flex-direction: column;
         }
 
-        /* Foco VisÃ­vel Global (A11y Requirement) */
+        /* Foco Visível Global (A11y Requirement) */
         :focus-visible {
             outline: 3px solid var(--focus-color);
             outline-offset: 2px;
@@ -168,14 +168,22 @@
             color: var(--primary-blue);
             text-decoration: none;
             font-weight: 500;
+            opacity: 0.6;
             transition: var(--transition);
             padding: 0.2rem;
             border-radius: 4px;
         }
 
-        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb a:hover { 
+            text-decoration: underline; 
+            opacity: 1;
+        }
 
-        /* Login Card - Componentizado e AcessÃ­vel */
+        .breadcrumb i {
+            opacity: 0.4;
+        }
+
+        /* Login Card - Componentizado e Acessível */
         .login-wrapper {
             display: flex;
             justify-content: center;
@@ -216,7 +224,7 @@
             font-size: 1rem;
         }
 
-        /* Forms MÃ³dulo */
+        /* Forms Módulo */
         .form-group {
             margin-bottom: 1.5rem;
             display: flex;
@@ -241,7 +249,7 @@
             left: 1rem;
             color: var(--text-gray);
             font-size: 1.2rem;
-            pointer-events: none; /* Previne interceptaÃ§Ã£o de clique */
+            pointer-events: none; /* Previne interceptação de clique */
         }
 
         .input-wrapper input {
@@ -271,7 +279,7 @@
             box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
         }
 
-        /* BotÃ£o para inverter visibilidade da senha - UX Improvement */
+        /* Botão para inverter visibilidade da senha - UX Improvement */
         .btn-toggle-password {
             position: absolute;
             right: 0.5rem;
@@ -297,7 +305,7 @@
             .btn-toggle-password:hover { background: rgba(255,255,255,0.1); }
         }
 
-        /* Links de AÃ§Ã£o (Aumentado as Zonas de Toque) */
+        /* Links de Ação (Aumentado as Zonas de Toque) */
         .form-actions {
             display: flex;
             justify-content: flex-end; /* Apenas esqueci senha aqui para simplificar */
@@ -360,7 +368,7 @@
             .help-links { border-color: rgba(255,255,255,0.1); }
         }
 
-        /* Accordion AcessÃ­vel Melhorado */
+        /* Accordion Acessível Melhorado */
         .accordion-modern {
             border: 1px solid rgba(10, 37, 64, 0.1);
             border-radius: 8px;
@@ -471,8 +479,7 @@
 
         .footer-col h4 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem; margin-bottom: 1rem;
             color: var(--primary-yellow);
         }
 
@@ -488,9 +495,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.9rem;
             transition: var(--transition);
-            padding: 0.3rem 0;
-            border-radius: 4px;
         }
 
         .footer-links a:hover {
@@ -512,8 +518,7 @@
 
         .copyright {
             text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
+            padding-top: 1.5rem; margin-top: 1.5rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.6);
             font-size: 0.9rem;
@@ -543,56 +548,61 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-brand">
-            <img src="https://www.unitins.br/uniPerfil/Logomarca/Imagem/09997c779523a61bd01bb69b0a789242" alt="Logo Unitins" style="height: 45px;">
+        <div class="nav-brand-group" style="display: flex; align-items: center; gap: 15px;">
+            <a href="#" class="nav-brand" style="text-decoration:none;">
+                <img src="https://www.unitins.br/uniPerfil/Logomarca/Imagem/09997c779523a61bd01bb69b0a789242" alt="Logo Unitins" style="height: 55px;">
+            </a>
+            <div style="height: 50px; width: 1px; background: rgba(128,128,128,0.3);"></div>
+            <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins" style="height: 45px; object-fit: contain;">
         </div>
-        <div class="nav-actions">
-            <!-- Social com RÃ³tulo para leitores de tela -->
-            <div class="social-links">
-                <a href="#" aria-label="Acessar Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Acessar Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Acessar YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Acessar LinkedIn"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="social-links" style="display: flex; gap: 1rem; align-items: center;">
+                <a href="#" aria-label="Acessar Instagram" style="color: var(--text-gray);"><i class="ph ph-instagram-logo" style="font-size: 1.2rem;"></i></a>
+                <a href="#" aria-label="Acessar Facebook" style="color: var(--text-gray);"><i class="ph ph-facebook-logo" style="font-size: 1.2rem;"></i></a>
+                <a href="#" aria-label="Acessar YouTube" style="color: var(--text-gray);"><i class="ph ph-youtube-logo" style="font-size: 1.2rem;"></i></a>
+                <a href="#" aria-label="Acessar LinkedIn" style="color: var(--text-gray);"><i class="ph ph-linkedin-logo" style="font-size: 1.2rem;"></i></a>
             </div>
-            <button class="btn-modern btn-primary">
-                <i class="ph ph-globe" aria-hidden="true"></i> PortuguÃªs
+            
+            <button class="btn-modern" style="background: transparent; color: var(--text-dark); border:none; display: flex; align-items: center; padding: 0.6rem 0.8rem; cursor: pointer;" onclick="window.location.href='portal_aluno_login_light.html'" aria-label="Switch to Light Theme">
+                <i class="ph ph-sun" style="font-size: 1.2rem;"></i>
             </button>
-            <button class="btn-modern" style="background: rgba(10,37,64,0.05); color: var(--text-dark);">
-                Acesso Administrativo
-            </button>
+            <select class="btn-modern" onchange="if(this.value==='pt'){var f=location.pathname.split('/').pop();location.href='../'+f;}" >
+                <option value="pt" style="background: var(--bg-card); color: var(--text-dark);">PT</option>
+                <option value="en" style="background: var(--bg-card); color: var(--text-dark);" selected>EN</option>
+            </select>
         </div>
     </nav>
 
     <main class="main-content">
         <nav aria-label="Breadcrumb">
             <div class="breadcrumb">
-                <a href="#">PÃ¡gina Inicial</a> 
+                <a href="#">Home</a> 
                 <i class="ph ph-caret-right" aria-hidden="true"></i>
-                <a href="#">Aluno</a> 
+                <a href="#">Student</a> 
                 <i class="ph ph-caret-right" aria-hidden="true"></i>
-                <span aria-current="page" style="color: var(--text-dark); font-weight: 600;">Login - Portal do Aluno</span>
+                <span aria-current="page" style="color: var(--text-dark); font-weight: 600;">Student Portal</span>
             </div>
         </nav>
 
         <div class="login-wrapper">
-            <!-- Adicionada semÃ¢ntica de formulÃ¡rio com regiÃ£o identificada -->
+            <!-- Adicionada semântica de formulário com região identificada -->
             <section class="login-card" aria-labelledby="login-heading">
                 <div class="login-header">
-                    <h2 id="login-heading">Portal do Aluno</h2>
-                    <p>Acesse com seu e-mail institucional</p>
+                    <h2 id="login-heading">Student Portal</h2>
+                    <p>Sign in with your institutional e-mail</p>
                 </div>
 
-                <form id="loginForm" onsubmit="event.preventDefault(); alert('FormulÃ¡rio Submetido!');">
+                <form id="loginForm" onsubmit="event.preventDefault(); alert('Form Submitted!');">
                     
                     <div class="form-group">
-                        <label for="email">E-mail Institucional</label>
+                        <label for="email">Institutional E-mail</label>
                         <div class="input-wrapper">
                             <i class="ph ph-envelope-simple prefix" aria-hidden="true"></i>
                             <input 
                                 type="email" 
                                 id="email" 
                                 name="email" 
-                                placeholder="exemplo@unitins.br" 
+                                placeholder="example@unitins.br" 
                                 required
                                 aria-required="true"
                             >
@@ -600,51 +610,51 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Senha</label>
+                        <label for="password">Password</label>
                         <div class="input-wrapper">
                             <i class="ph ph-lock prefix" aria-hidden="true"></i>
                             <input 
                                 type="password" 
                                 id="password" 
                                 name="password" 
-                                placeholder="Insira sua senha" 
+                                placeholder="Enter your password" 
                                 required
                                 aria-required="true"
                             >
-                            <!-- UX/A11Y: BotÃ£o para mostrar/ocultar senha -->
-                            <button type="button" class="btn-toggle-password" onclick="togglePassword()" aria-label="Mostrar a senha" id="btn-toggle-pass">
+                            <!-- UX/A11Y: Show/hide password button -->
+                            <button type="button" class="btn-toggle-password" onclick="togglePassword()" aria-label="Show password" id="btn-toggle-pass">
                                 <i class="ph ph-eye" aria-hidden="true" id="eye-icon"></i>
                             </button>
                         </div>
                     </div>
 
                     <div class="form-actions">
-                        <a href="#">Esqueci minha senha</a>
+                        <a href="#">Forgot my password</a>
                     </div>
                     
                     <button type="submit" class="btn-submit">
-                        Entrar no Portal
+                        Sign In to Portal
                     </button>
                 </form>
 
                 <div class="help-links">
-                    <a href="#"><i class="ph ph-question" aria-hidden="true"></i> Preciso de Ajuda</a>
-                    <a href="#"><i class="ph ph-graduation-cap" aria-hidden="true"></i> AVA (Turmas 2001-2008)</a>
+                    <a href="#"><i class="ph ph-question" aria-hidden="true"></i> I Need Help</a>
+                    <a href="#"><i class="ph ph-graduation-cap" aria-hidden="true"></i> LMS (Classes 2001-2008)</a>
                 </div>
 
-                <!-- Accordion com atributos ARIA controlados por JS -->
+                <!-- Accordion with full ARIA state support via JS -->
                 <div class="accordion-modern">
                     <button type="button" class="accordion-trigger" id="acc-trigger" aria-expanded="false" aria-controls="acc-panel" onclick="toggleAccordion()">
-                        Acesse nossos Tutoriais e Links Ãšteis
+                        Access our Tutorials and Useful Links
                         <i class="ph ph-caret-down" aria-hidden="true"></i>
                     </button>
                     <div id="acc-panel" class="accordion-panel" role="region" aria-labelledby="acc-trigger" aria-hidden="true">
                         <ul>
-                            <li><a href="#"><i class="ph ph-info" aria-hidden="true"></i> Primeiro acesso ou problemas</a></li>
-                            <li><a href="#"><i class="ph ph-key" aria-hidden="true"></i> Esqueci a senha ou quero trocÃ¡-la</a></li>
-                            <li><a href="#"><i class="ph ph-wrench" aria-hidden="true"></i> Como utilizar o Educ@</a></li>
-                            <li><a href="#"><i class="ph ph-notebook" aria-hidden="true"></i> Guia PrÃ¡tico do AcadÃªmico</a></li>
-                            <li><a href="#"><i class="ph ph-books" aria-hidden="true"></i> SIBUNI - Sistema de Bibliotecas</a></li>
+                            <li><a href="#"><i class="ph ph-info" aria-hidden="true"></i> First access or issues</a></li>
+                            <li><a href="#"><i class="ph ph-key" aria-hidden="true"></i> Forgot password or want to change it</a></li>
+                            <li><a href="#"><i class="ph ph-wrench" aria-hidden="true"></i> How to use Educ@</a></li>
+                            <li><a href="#"><i class="ph ph-notebook" aria-hidden="true"></i> Student Practical Guide</a></li>
+                            <li><a href="#"><i class="ph ph-books" aria-hidden="true"></i> SIBUNI - Library System</a></li>
                         </ul>
                     </div>
                 </div>
@@ -653,48 +663,49 @@
         </div>
     </main>
 
-    <footer class="footer" style="background: var(--secondary-blue); color: white; padding: 4rem 3rem 1.5rem; margin-top: auto;">
+    <footer class="footer" style="background: var(--secondary-blue); color: white; padding: 2.5rem 3rem 1rem; margin-top: auto;">
         <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto;">
             <div class="footer-col">
-                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">Atendimento ao AcadÃªmico</h4>
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.1rem; margin-bottom: 1rem;">Student Services</h4>
                 <div class="footer-links" style="display: flex; flex-direction: column; gap: 12px;">
-                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chat-circle" style="font-size: 1.2rem;"></i> Ouvidoria Institucional</a>
-                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="font-size: 1.2rem;"></i> Central 162 Ouvidoria Geral</a>
-                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-envelope-simple" style="font-size: 1.2rem;"></i> Fale Conosco Online</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chat-circle" style="font-size: 1.2rem;"></i> Institutional Ombudsman</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-phone" style="font-size: 1.2rem;"></i> Hotline 162 General Ombudsman</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-info" style="font-size: 1.2rem;"></i> Access to Information</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; display: flex; align-items: center; gap: 8px;"><i class="ph ph-chart-bar" style="font-size: 1.2rem;"></i> Transparency Portal</a>
                 </div>
             </div>
             
             <div class="footer-col">
-                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 1.5rem;">CertificaÃ§Ã£o AcadÃªmica</h4>
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.1rem; margin-bottom: 1rem;">Academic Certification</h4>
                 <div class="seal" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=Unitins_eMEC&color=1A3C65&bgcolor=FFF" alt="QR Code MEC" style="width: 50px; height: 50px; background: white; border-radius: 6px; padding: 2px;">
                     <div style="display: flex; flex-direction: column;">
-                        <strong style="color: white; font-size: 1rem;">Sistema e-MEC</strong>
-                        <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">InstituiÃ§Ã£o Credenciada Ativa</span>
+                        <strong style="color: white; font-size: 1rem;">e-MEC System</strong>
+                        <span style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">Active Accredited Institution</span>
                     </div>
                 </div>
             </div>
 
             <div class="footer-col" style="text-align: right;">
-                <img src="https://www.unitins.br/nPortal/Content/v3/assets/logo-gov.png" alt="Governo do Tocantins - RodapÃ©" style="height: 40px; opacity: 0.8; filter: brightness(0) invert(1); margin-bottom: 15px;">
-                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 10px;">Sede Administrativa</h4>
+                
+                <h4 style="font-family: 'Outfit', sans-serif; color: var(--primary-yellow); font-size: 1.2rem; margin-bottom: 10px;">Administrative Headquarters</h4>
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; margin: 0;">
-                    108 sul Alameda 11 Lote 03<br>
-                    Palmas-TO, CEP: 77020-122
+                    108 Sul, Alameda 11, Lot 03<br>
+                    Palmas-TO, ZIP: 77020-122
                 </p>
                 <strong style="color: white; font-family: 'Outfit', sans-serif; font-size: 1.2rem; display: block; margin-top: 10px;">
-                    (63) 3901-4000
+                    +55 (63) 3901-4000
                 </strong>
             </div>
         </div>
-        <div class="copyright" style="text-align: center; padding-top: 3rem; margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.85rem;">
-            <p>&copy; 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto AcadÃªmico TCC.</p>
+        <div class="copyright" style="text-align: center; padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); font-size: 0.9rem;">
+            <p>&copy; 2026 State University of Tocantins - UNITINS. All rights reserved. Academic TCC Project.</p>
         </div>
     </footer>
 
-    <!-- Scripts fÃ¡ceis e acessÃ­veis -->
+    <!-- Scripts fáceis e acessíveis -->
     <script>
-        // FunÃ§Ã£o para mostrar/ocultar senha no formulÃ¡rio
+        // Função para mostrar/ocultar senha no formulário
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.getElementById('eye-icon');
@@ -713,7 +724,7 @@
             }
         }
 
-        // FunÃ§Ã£o de Accordion com suporte completo a states ARIA
+        // Função de Accordion com suporte completo a states ARIA
         function toggleAccordion() {
             const trigger = document.getElementById('acc-trigger');
             const panel = document.getElementById('acc-panel');

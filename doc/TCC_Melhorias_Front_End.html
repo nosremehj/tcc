@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Melhorias de front-end — TCC (UNITINS)</title>
+  <style>
+    @page { margin: 2cm; size: A4; }
+    body { font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.45; color: #111; max-width: 18cm; margin: 0 auto; padding: 1.5cm; }
+    h1 { font-size: 16pt; border-bottom: 2px solid #004093; padding-bottom: 0.3em; color: #003c84; }
+    h2 { font-size: 13pt; margin-top: 1.2em; color: #004093; }
+    h3 { font-size: 11.5pt; margin-top: 0.9em; }
+    table { border-collapse: collapse; width: 100%; font-size: 9.5pt; margin: 0.6em 0; }
+    th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { background: #f0f4f8; color: #003c84; }
+    ul { margin: 0.4em 0; padding-left: 1.2em; }
+    li { margin: 0.25em 0; }
+    blockquote { margin: 0.8em 0; padding: 0.6em 1em; background: #f8fafc; border-left: 4px solid #004cbd; font-size: 10.5pt; }
+    .muted { color: #555; font-size: 10pt; }
+    @media print { body { padding: 0; } a { color: #000; text-decoration: none; } }
+  </style>
+</head>
+<body>
+
+<h1>Melhorias de front-end para implementação no TCC</h1>
+<p class="muted">Documento alinhado à análise das <strong>interfaces institucionais em produção</strong> em <strong>unitins.br</strong> (IProtocolo, login do Portal do Aluno, SIBUNI/nPortal) e aos protótipos em <code>Pag/</code>. O HTML do repositório é <strong>material de apoio</strong> — proposta e registro analítico frente ao <strong>portal atual online</strong>, não substituto do ambiente oficial. Ajuste ABNT e numeração conforme o modelo da instituição.</p>
+<p class="muted"><strong>URLs de referência (produção):</strong> IProtocolo — <code>https://www.unitins.br/iprotocolo/</code> · Login Portal do Aluno — <code>https://www.unitins.br/PortalAluno/Account/Login</code> · SIBUNI — <code>https://www.unitins.br/nPortal/sibuni</code></p>
+
+<h2>1. Contexto e objetivo</h2>
+<p><strong>Problema:</strong> nas <strong>interfaces em uso hoje</strong> (serviços publicados pela UNITINS em <strong>unitins.br</strong>), observam-se limitações de aderência a <strong>acessibilidade</strong>, <strong>internacionalização</strong>, <strong>semântica HTML5</strong> e <strong>consistência visual</strong> com um vocabulário de Design System unificado.</p>
+<p><strong>Objetivo:</strong> demonstrar, de forma incremental e documentável, como <strong>evoluir</strong> essas telas <strong>em relação ao que está no ar</strong>, sem reescrever o backend no escopo do TCC, alinhando a WCAG 2.1, i18n (PT-BR / EN), tema claro/escuro onde aplicável, identidade cromática institucional e protótipos “light” como referência de arquitetura de informação.</p>
+
+<h2>2. Eixos de melhoria</h2>
+
+<h3>2.1 Acessibilidade (a11y)</h3>
+<table>
+  <thead><tr><th>Melhoria</th><th>Onde / exemplo</th><th>Justificativa (WCAG)</th></tr></thead>
+  <tbody>
+    <tr><td>Skip link</td><td>Login, IProtocolo</td><td>2.4.1 — contornar blocos repetidos</td></tr>
+    <tr><td><code>:focus-visible</code></td><td>Proposta (material do TCC) vs. publicação online</td><td>2.4.7 — foco visível</td></tr>
+    <tr><td><code>&lt;main id="conteudo"&gt;</code></td><td>Login, IProtocolo</td><td>1.3.1 — região principal</td></tr>
+    <tr><td>Landmarks e <code>aria-label</code></td><td>Portal login</td><td>Navegação por regiões</td></tr>
+    <tr><td>Rótulos / estado em controles</td><td>Idioma, tema, acordeão</td><td>4.1.2 — nome, função, valor</td></tr>
+    <tr><td>Listas semânticas</td><td>Hero IProtocolo</td><td>1.3.1 — estrutura</td></tr>
+    <tr><td>JSON-LD</td><td>BreadcrumbList, WebPage</td><td>SEO + dados estruturados</td></tr>
+  </tbody>
+</table>
+
+<h3>2.2 Internacionalização (i18n)</h3>
+<ul>
+  <li>PT / EN com dicionário em JS e atributos <code>data-i18n*</code>.</li>
+  <li>Persistência em <code>localStorage</code> (chaves por aplicação).</li>
+  <li><code>lang</code> e <code>data-lang</code> no <code>&lt;html&gt;</code> com script inicial para evitar “flash” de idioma.</li>
+  <li>Links <code>hreflang</code> para URLs oficiais onde aplicável.</li>
+</ul>
+
+<h3>2.3 Tema claro / escuro</h3>
+<ul>
+  <li>Atributo <code>data-theme</code> e CSS de sobrescrita (ex.: portal do aluno).</li>
+  <li>Revisão de contraste em modo escuro (formulário, breadcrumb, rodapé).</li>
+</ul>
+
+<h3>2.4 Consistência visual (portal / Design System)</h3>
+<table>
+  <thead><tr><th>Token</th><th>Uso típico</th></tr></thead>
+  <tbody>
+    <tr><td><code>#004093</code>, <code>#003c84</code></td><td>Azul institucional, fundos e textos fortes</td></tr>
+    <tr><td><code>#004cbd</code></td><td>Acento, gradientes, links de destaque</td></tr>
+    <tr><td><code>#18428f</code></td><td>Botão primário (nPortal)</td></tr>
+    <tr><td><code>#ffb100</code></td><td>Destaque / rodapé tipo “light”</td></tr>
+  </tbody>
+</table>
+
+<h3>2.5 Protótipos Pag × portal atual (online)</h3>
+<ul>
+  <li><strong>Pag/*_light.html:</strong> referência de arquitetura (hero, cards, rodapé rico).</li>
+  <li><strong>Portal em produção (unitins.br):</strong> objeto de análise — conteúdo, fluxos e comportamento reais.</li>
+  <li><strong>Material do TCC:</strong> páginas de apoio com os <strong>mesmos destinos oficiais</strong>, incorporando melhorias para comparação com o estado publicado.</li>
+  <li><strong>Exemplo documentável:</strong> IProtocolo — simplificação do topo na proposta (PT/EN + administrativo no corpo); redes no rodapé.</li>
+</ul>
+
+<h3>2.6 Formulário (Portal do Aluno — produção)</h3>
+<ul>
+  <li><strong>Baseline:</strong> tela oficial de login em <code>unitins.br</code>.</li>
+  <li><strong>Proposta:</strong> Bootstrap 5 (<code>form-floating</code>), acordeão <code>data-bs-*</code>, <code>label for</code>, validação <code>@unitins.br</code>, reCAPTCHA com <code>type="button"</code> e callback, scroll ao expandir acordeão em telas pequenas.</li>
+</ul>
+
+<h2>3. Contribuições / resultados esperados (texto para o TCC)</h2>
+<blockquote>
+As melhorias <strong>documentadas no material de apoio ao TCC</strong> demonstram a <strong>viabilidade de modernização front-end</strong> em continuidade com as <strong>interfaces oficiais já publicadas</strong>, sem alteração do stack servidor no escopo do estudo, com ganhos em <strong>acessibilidade</strong>, <strong>internacionalização</strong> e <strong>alinhamento cromático</strong> ao ecossistema digital da UNITINS. Os protótipos em <code>Pag/</code> funcionam como <strong>especificação visual</strong>; o contraste com o <strong>portal atual online</strong> permite comparar <strong>estado publicado</strong> e <strong>estado proposto</strong> (incluindo <strong>JSON-LD</strong> e <strong>rodapé institucional</strong> onde aplicável).
+</blockquote>
+
+<h2>4. Checklist para o capítulo de resultados</h2>
+<ol>
+  <li>Inserir capturas de tela antes / depois.</li>
+  <li>Tabela: critério WCAG × implementação × arquivo ou página.</li>
+  <li>Limitações: material de apoio é estático; diferenças em relação ao ASP.NET em produção; i18n/tema sem backend; JS para tema/idioma (mitigação com <code>noscript</code> se desejado).</li>
+  <li>Avaliação: checklist manual WCAG ou ferramenta (ex.: axe) com registro de achados corrigidos.</li>
+  <li>Síntese das decisões de UX (navbar removida, rodapé expandido, fundo contínuo no login).</li>
+</ol>
+
+<h2>5. Tabela “Antes × Depois”</h2>
+<table>
+  <thead><tr><th>Aspecto</th><th>Antes (portal publicado / observado)</th><th>Depois (proposta no material do TCC)</th></tr></thead>
+  <tbody>
+    <tr><td>Idioma</td><td>Conforme publicação oficial</td><td>PT/EN adicional + <code>lang</code> + armazenamento local</td></tr>
+    <tr><td>Foco teclado</td><td>Conforme publicação oficial</td><td><code>:focus-visible</code> explícito na proposta</td></tr>
+    <tr><td>Estrutura</td><td>Conforme markup em produção</td><td><code>main</code>, <code>footer</code>, <code>h1</code>, listas onde aplicável</td></tr>
+    <tr><td>Rodapé</td><td>Conforme cada sistema no ar</td><td>Bloco institucional ampliado (onde aplicável)</td></tr>
+    <tr><td>Cor / marca</td><td>Varia entre sistemas</td><td>Tokens #004093 / #003c84 / #ffb100</td></tr>
+    <tr><td>Dados estruturados</td><td>Ausente ou parcial</td><td>JSON-LD na proposta</td></tr>
+  </tbody>
+</table>
+
+<h2>6. Referências sugeridas (ajustar ABNT)</h2>
+<ul>
+  <li>W3C — Web Content Accessibility Guidelines (WCAG) 2.1.</li>
+  <li>W3C — HTML Living Standard (elementos semânticos).</li>
+  <li>Interfaces oficiais UNITINS — <code>https://www.unitins.br</code> e subsistemas do estudo.</li>
+</ul>
+
+<h2>7. Vocabulário sugerido (evitar “réplica”)</h2>
+<table>
+  <thead><tr><th>Evitar</th><th>Preferir</th></tr></thead>
+  <tbody>
+    <tr><td>réplica</td><td>interface <strong>em produção</strong> / <strong>publicada</strong> em unitins.br</td></tr>
+    <tr><td>réplica fiel</td><td><strong>linha de base</strong> do estado atual <strong>online</strong></td></tr>
+    <tr><td>cópia local</td><td><strong>material de apoio</strong>, <strong>protótipo</strong> ou <strong>proposta</strong> ancorada nas <strong>URLs oficiais</strong></td></tr>
+  </tbody>
+</table>
+
+<p class="muted" style="margin-top:2em;">Arquivo-fonte: <code>doc/TCC_Melhorias_Front_End.html</code> — gerar PDF pelo navegador (Ctrl+P → Salvar como PDF) ou pelo script do repositório, se disponível.</p>
+
+</body>
+</html>

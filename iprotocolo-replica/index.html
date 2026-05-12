@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <script>
+        (function () {
+            var kt = 'unitins-iprotocolo-theme';
+            var st = null;
+            try { st = localStorage.getItem(kt); } catch (e) {}
+            var theme = (st === 'light' || st === 'dark')
+                ? st
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+
+            var kl = 'unitins-iprotocolo-lang';
+            var sl = null;
+            try { sl = localStorage.getItem(kl); } catch (e) {}
+            var lang = (sl === 'en' || sl === 'pt') ? sl : 'pt';
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        })();
+    </script>
+    <script>
+        (function () {
+            try {
+                var r = localStorage.getItem('unitins-visual-a11y');
+                if (!r) return;
+                var o = JSON.parse(r);
+                if (o.font) document.documentElement.setAttribute('data-a11y-font-size', o.font);
+                if (o.spacing) document.documentElement.setAttribute('data-a11y-spacing', o.spacing);
+                if (o.contrast) document.documentElement.setAttribute('data-a11y-contrast', o.contrast);
+            } catch (e) {}
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ambiente oficial de protocolos virtuais da UNITINS: novas solicitações, acompanhamento e dúvidas frequentes." />
+    <title>IProtocolo — Protocolo Virtual | UNITINS</title>
+    <link rel="shortcut icon" href="https://www.unitins.br/Uniperfil/Upload/da2c288f8dc21c685081ef337c37f3b4.ico" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.unitins.br/iprotocolo/Default.aspx" />
+    <link rel="alternate" hreflang="en" href="https://www.unitins.br/iprotocolo/Default.aspx" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="iprotocolo-light.css" rel="stylesheet" />
+    <link href="unitins-footer-light.css" rel="stylesheet" />
+    <link href="theme-iprotocolo.css" rel="stylesheet" />
+    <link href="a11y-visual.css" rel="stylesheet" />
+</head>
+<body>
+    <a class="skip-link" href="#conteudo" data-i18n="skipToContent">Pular para o conteúdo principal</a>
+
+    <main id="conteudo" class="ipro-main" tabindex="-1">
+        <div class="ipro-top-tools">
+            <div class="ipro-lang" role="group">
+                <button type="button" class="ipro-lang-btn ipro-lang-on" id="ipro-pt" data-set-lang="pt" aria-pressed="true">PT</button>
+                <button type="button" class="ipro-lang-btn ipro-lang-off" id="ipro-en" data-set-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <button type="button" id="theme-toggle-ipro" class="ipro-theme-toggle" aria-pressed="false" data-i18n-title="themeTitle" title="Alternar tema claro ou escuro" aria-label="Ativar tema escuro">
+                <i class="ph ph-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="ph ph-sun theme-icon-light ipro-d-none" aria-hidden="true"></i>
+            </button>
+            <a href="https://www.unitins.br/iprotocolo/admin" class="ipro-admin-link" data-i18n="navAdmin">Acesso administrativo</a>
+        </div>
+        <nav class="ipro-breadcrumb" aria-label="Breadcrumb">
+            <a href="https://www.unitins.br/"><span data-i18n="bcHome">Página inicial</span></a>
+            <i class="ph ph-caret-right ipro-bc-sep" aria-hidden="true"></i>
+            <a href="https://www.unitins.br/nPortal/perfilaluno"><span data-i18n="bcMid">Portal do Aluno</span></a>
+            <i class="ph ph-caret-right ipro-bc-sep" aria-hidden="true"></i>
+            <span aria-current="page" data-i18n="bcCurrent">IProtocolo</span>
+        </nav>
+
+        <section class="ipro-hero" aria-labelledby="ipro-hero-title">
+            <h1 id="ipro-hero-title" data-i18n="heroTitle">Protocolo virtual público</h1>
+            <p data-i18n="heroLead">Seja bem-vindo ao nosso ambiente de protocolos.</p>
+            <ul>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span data-i18n="heroLi1">Suporte e controle de acesso aos sistemas;</span></li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span data-i18n="heroLi2">Emissão e conferência de documentos oficiais;</span></li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i> <span data-i18n="heroLi3">Canal para dúvidas, elogios ou sugestões.</span></li>
+            </ul>
+        </section>
+
+        <section class="ipro-action-cards" aria-label="Ações principais">
+            <a href="https://www.unitins.br/iprotocolo/novasolicitacao.aspx" class="ipro-action-card ipro-action-card-highlight">
+                <i class="ph-fill ph-file-plus ipro-card-icon" aria-hidden="true"></i>
+                <h2 data-i18n="cardNewTitle">Nova solicitação</h2>
+                <p data-i18n="cardNewDesc">Abra um novo protocolo rapidamente.</p>
+            </a>
+            <a href="https://www.unitins.br/iprotocolo/areaaluno.aspx" class="ipro-action-card">
+                <i class="ph-fill ph-funnel ipro-card-icon" aria-hidden="true"></i>
+                <h2 data-i18n="cardMyTitle">Minhas solicitações</h2>
+                <p data-i18n="cardMyDesc">Acompanhe o status e o histórico dos seus protocolos.</p>
+            </a>
+            <a href="https://www.unitins.br/iprotocolo/duvidas.aspx" class="ipro-action-card">
+                <i class="ph-fill ph-lightbulb-filament ipro-card-icon" aria-hidden="true"></i>
+                <h2 data-i18n="cardFaqTitle">Dúvidas frequentes</h2>
+                <p data-i18n="cardFaqDesc">Soluções mais frequentes e orientações.</p>
+            </a>
+        </section>
+    </main>
+
+    <footer class="pal-ft" id="footer">
+        <div class="pal-ft-grid">
+            <div class="pal-ft-col">
+                <h4 data-i18n="footColAtend">Atendimento ao Acadêmico</h4>
+                <div class="pal-ft-links">
+                    <a href="https://www.unitins.br/nPortal/portal/page/show/ouvidoria-da-unitins" target="_blank" rel="noopener noreferrer"><i class="ph ph-chat-circle" aria-hidden="true"></i> <span data-i18n="footOuvInst">Ouvidoria Institucional</span></a>
+                    <a href="https://ouvidoria.to.gov.br/" target="_blank" rel="noopener noreferrer"><i class="ph ph-phone" aria-hidden="true"></i> <span data-i18n="footCentral162">Central 162 Ouvidoria Geral</span></a>
+                    <a href="https://www.unitins.br/nPortal/portal/page/show/acesso-a-informacao" target="_blank" rel="noopener noreferrer"><i class="ph ph-info" aria-hidden="true"></i> <span data-i18n="footAcessoInfo">Acesso à Informação</span></a>
+                    <a href="https://www.unitins.br/portaltransparencia/" target="_blank" rel="noopener noreferrer"><i class="ph ph-chart-bar" aria-hidden="true"></i> <span data-i18n="footTransp">Portal da Transparência</span></a>
+                </div>
+            </div>
+            <div class="pal-ft-col">
+                <h4 data-i18n="footColCert">Certificação Acadêmica</h4>
+                <a href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhamento/d96957f455f6405d14c6542552b0f6eb/ODI5" class="pal-ft-seal" target="_blank" rel="noopener noreferrer">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=Unitins_eMEC&amp;color=1A3C65&amp;bgcolor=FFF" alt="" width="50" height="50" data-i18n-alt="footQrAlt" />
+                    <div>
+                        <strong data-i18n="footEmecStrong">Sistema e-MEC</strong>
+                        <span data-i18n="footEmecSub">Instituição Credenciada Ativa</span>
+                    </div>
+                </a>
+            </div>
+            <div class="pal-ft-col pal-ft-sede">
+                <h4 data-i18n="footColSede">Sede Administrativa</h4>
+                <p><span data-i18n="footAddrLine1">108 sul Alameda 11 Lote 03</span><br /><span data-i18n="footAddrLine2">Palmas-TO, CEP: 77020-122</span></p>
+                <a class="pal-ft-phone" href="tel:6339014000">(63) 3901-4000</a>
+            </div>
+        </div>
+        <div class="pal-ft-copy">
+            <p data-i18n="footCopyrightLight">© 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto Acadêmico TCC.</p>
+            <p class="pal-ft-dti"><span data-i18n="footerDti">Desenvolvido pela Diretoria de Tecnologia da Informação</span></p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json" id="ld-webpage-iprotocolo">{}</script>
+    <script src="i18n-iprotocolo.js"></script>
+    <script src="theme-iprotocolo.js"></script>
+    <script src="a11y-visual.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/**
+ * Rodapé alinhado a Pag/portal_aluno_login_light.html (apenas bloco inferior).
+ */
+.pal-ft {
+    --pal-ft-yellow: #ffb100;
+    /* Deixa o background da página (imagem fixa do body) visível também no rodapé */
+    background: linear-gradient(
+        180deg,
+        rgba(0, 64, 147, 0.55) 0%,
+        rgba(0, 64, 147, 0.82) 100%
+    );
+    backdrop-filter: saturate(1.1) blur(4px);
+    -webkit-backdrop-filter: saturate(1.1) blur(4px);
+    color: #fff;
+    padding: 2.5rem 3rem 1rem;
+    margin-top: 0;
+}
+
+.pal-ft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pal-ft-col h4 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    color: var(--pal-ft-yellow);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pal-ft-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pal-ft-links a {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pal-ft-links a:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.pal-ft-links a .fas {
+    width: 1.25rem;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.pal-ft-seal {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.pal-ft-seal:hover {
+    color: inherit;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.pal-ft-seal img {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 2px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.pal-ft-seal strong {
+    color: #fff;
+    font-size: 1rem;
+    display: block;
+    font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.pal-ft-seal span {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.pal-ft-sede {
+    text-align: right;
+}
+
+.pal-ft-sede p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pal-ft-phone {
+    color: #fff;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pal-ft-phone:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.pal-ft-copy {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.pal-ft-copy p {
+    margin: 0 0 0.5rem;
+}
+
+.pal-ft-dti {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 768px) {
+    .pal-ft {
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .pal-ft-sede {
+        text-align: left;
+    }
+}

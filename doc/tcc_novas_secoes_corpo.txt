@@ -1,0 +1,41 @@
+8. ANÁLISE COMPARATIVA ENTRE INTERFACES LEGADAS E PROTÓTIPO ORIENTADO POR DESIGN SYSTEM
+
+Este capítulo consolida o contraste entre (i) as interfaces institucionais em produção no domínio unitins.br (ecossistema digital da UNITINS) — IProtocolo (https://www.unitins.br/iprotocolo/), Portal do Aluno — tela de login (https://www.unitins.br/PortalAluno/Account/Login) e SIBUNI/nPortal (https://www.unitins.br/nPortal/sibuni) —, tomadas como linha de base documental, e (ii) protótipos elaborados com vocabulário de Design System (tokens de cor, espaçamento, tipografia, componentes reutilizáveis e padrões de navegação), materializados em HTML de referência e, posteriormente, no ambiente Figma para inspeção e testes.
+
+8.1. Enquadramento metodológico
+
+A comparação evidencia, de forma empírica, a distinção entre soluções digitais construídas de modo heterogêneo ao longo do tempo (frameworks, folhas de estilo e ativos gráficos específicos por sistema) e uma abordagem por padrões interrelacionados, como preconiza a literatura sobre Design System (KHOLMATOVA, 2017; CURTIS, 2017; MENDES, 2019).
+
+8.2. Síntese por canal digital
+
+IProtocolo (interface em produção — linha de base): ações principais comunicadas por imagens bitmap; layout de largura fixa; ausência de trilha de navegação (migalhas) na publicação online. Protótipo com Design System: componente de migalhas; cartões de ação com título e texto de apoio; tokens visuais nomeados — favorecendo manutenção e orientação no ecossistema acadêmico.
+
+Portal do Aluno — login (interface em produção — linha de base): conforme código em produção, com Bootstrap 5 e folha novo-login.css; pontos de melhoria estrutural no vínculo rótulo/campo herdados do gerador de páginas. Protótipo com Design System: rótulos associados aos campos; indicação de página atual nas migalhas; foco visível explícito (:focus-visible); áreas de toque ampliadas em ícones sociais; recurso de exibir/ocultar senha como padrão replicável — alinhado a critérios WCAG 2.1 previstos na metodologia.
+
+SIBUNI / nPortal (interface em produção — linha de base): experiência própria do portal (Bootstrap 4.6, estilo.css, mega menu). Protótipo com Design System: mesma família de tokens e componentes de cabeçalho que os demais protótipos — ilustrando consistência transversal; navegação secundária em padrão de abas; busca persistente na barra superior — passível de avaliação comparativa em teste com usuários.
+
+8.3. Síntese transversal
+
+Em síntese, o protótipo traduz: (a) padrões nomeados em catálogo (cabeçalho institucional, migalhas, cartão de ação, formulário de login, rodapé de serviços); (b) acessibilidade como critério de aceite (foco, rótulos, estados ARIA); (c) variantes de tema e internacionalização como extensões documentáveis do sistema; (d) necessidade de validação das cores e do acabamento visual junto ao manual de identidade institucional.
+
+9. COMUNICAÇÃO DO VALOR AGREGADO PARA PÚBLICOS NÃO ESPECIALISTAS
+
+O valor agregado dos protótipos deve ser compreendido também por leitores que não atuam em desenvolvimento ou design de interfaces — inclusive membros de banca. Em uma frase: os protótipos são uma versão de ensaio de como os sistemas poderiam organizar-se de modo coerente, para que o usuário se localize mais rápido, cometa menos erros e a instituição reduza retrabalho visual disperso.
+
+Problemas perceptíveis hoje: cada sistema parece de um jeito; nem sempre fica claro onde estou; o mais importante nem sempre se destaca; em celular, botões pequenos geram frustração. Esses fatores geram desgaste e demanda de apoio, não por falta de habilidade do usuário, mas por falta de padronização perceptível entre canais.
+
+O Design System corresponde, em linguagem simples, a um manual e um kit de peças oficiais: padrões de botão, campo, caminho (migalhas) e hierarquia. O ganho para o usuário final é menos confusão, mais previsibilidade e maior confiança no ambiente digital.
+
+Ao testar o protótipo (incluindo no Figma), o avaliador pode verificar sem formação em TI: (1) sei onde estou; (2) sei o que cada ação faz; (3) avanço com menos erro; (4) parece o mesmo ambiente institucional; (5) no celular, parece utilizável. Esses critérios sustentam a defesa: o teste não é apenas estética, mas clareza de tarefa, orientação e confiança.
+
+Para rigor acadêmico: declarar o protótipo como instrumento de pesquisa frente ao estado atual; registrar participantes, tarefas, tempos, erros e comentários; explicitar limitações (protótipo não substitui ambiente integrado com todas as regras de segurança e backend).
+
+10. RESULTADOS PARCIAIS, VALIDAÇÃO NO FIGMA E CONSIDERAÇÕES PARA CONCLUSÃO
+
+Registrou-se analiticamente o estado das três interfaces em produção (IProtocolo, login do Portal do Aluno, SIBUNI) como diagnóstico da fragmentação técnica e visual. Em paralelo, protótipos com Design System demonstram viabilidade de padronização por tokens e componentes, com documentação passível de evolução no Figma.
+
+A disponibilização dos protótipos no Figma permitiu que docentes executassem tarefas representativas (localizar informação, identificar ação principal, percorrer fluxos simulados), aproximando o estudo de uma avaliação empírica de usabilidade percebida. Os registros dessa etapa (roteiro, observações, eventual escala SUS ou questionário) constituem evidência de que o valor agregado não é meramente discursivo.
+
+Reconhecem-se limitações: o Figma não reproduz integralmente restrições de servidor, autenticação plena ou desempenho em produção; a paleta dos protótipos deve ser alinhada ao guia oficial de marca. A conclusão do trabalho deve articular ganhos de UX percebidos, limitações de validação e próximos passos para implementação institucional do Design System como produto de longo prazo (MENDES, 2019).
+
+Em síntese, a hipótese de melhoria de experiência do usuário, acessibilidade e eficiência de manutenção encontra sustentação preliminar na análise comparativa e na validação com docentes; a etapa final do TCC deve consolidar esses achados com a formalização dos resultados quanti-qualitativos previstos na metodologia.

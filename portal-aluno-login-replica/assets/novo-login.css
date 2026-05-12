@@ -1,0 +1,180 @@
+﻿/* Acessibilidade / DS (TCC): foco visível e “skip link” — sem mudar a identidade visual */
+:focus-visible {
+    outline: 3px solid rgba(0, 64, 147, 0.55);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 2000;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #004093;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transform: translateY(-150%);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+.portal-login-breadcrumb {
+    color: #6c757d;
+}
+
+.portal-login-breadcrumb a {
+    color: #004093;
+    text-decoration: none;
+}
+
+.portal-login-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.accordion-button {
+    background-color: #004cbd;
+    color: #fff;
+}
+
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFFFFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+body {
+    background: url(bg-login-web.jpg) center no-repeat #004093;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Inter';
+    cursor: default;
+}
+
+a {
+    color: #004093;
+}
+
+#page {
+    width: 100%;
+    min-height: 90vh;
+    padding: 15px;
+}
+
+.card {
+    width: 500px;
+    max-width: 500px;
+    overflow: hidden;
+}
+
+/* .card-body {
+   padding: 3rem;
+ } */
+
+.logotipo {
+    max-height: 75px;
+    max-width: 190px;
+}
+
+label .fas {
+    color: #a2a4a6;
+}
+
+.form-check-input:checked {
+    background-color: #004093;
+    border-color: #004093;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #004093;
+    border-color: #004093;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #004cbd;
+}
+
+.nav-pills .nav-link {
+    background: #f3f3f3;
+}
+
+.nav-link {
+    color: #004cbd;
+}
+
+.card-footer {
+    padding: 3rem;
+    background: #004093;
+}
+
+.lista-links {
+    margin: 0 -3rem !important;
+}
+
+.lista-links a {
+    color: #fff;
+}
+
+.lista-links a:hover {
+    color: #fff;
+    opacity: .75;
+}
+
+.card-footer .fas {
+    opacity: 0.45;
+}
+
+.card-footer .list-group-item {
+    color: var(--bs-light);
+}
+
+.card-footer .list-group-item:hover {
+    opacity: 0.75;
+}
+
+.grecaptcha-badge {
+    bottom: 50px !important;
+}
+
+.creditos-desenvolvimento {
+    text-align: center;
+    color: #fff !important;
+    font-size: 12px;
+    margin: 0;
+}
+
+.creditos-desenvolvimento:last-child {
+    margin-bottom: 1.5rem;
+}
+
+.creditos-desenvolvimento a {
+    color: #fff !important;
+}
+
+/* Layout global do Portal (rodapé / #wrap) — não incluídos no HTML original do login */
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    height: auto !important;
+    margin: 0 auto;
+    min-height: 95.5%;
+}
+
+.bg-primario {
+    background-color: #004093;
+}

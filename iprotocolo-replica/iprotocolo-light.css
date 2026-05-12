@@ -1,0 +1,311 @@
+/**
+ * Layout tipo Pag/iprotocolo_light.html com paleta alinhada ao nportal-sibuni-replica
+ * e portal-aluno-login-replica (#004093, #003c84, #004cbd, #18428f, acentos #ffb100).
+ */
+:root {
+    --ipro-primary: #004093;
+    --ipro-primary-deep: #003c84;
+    --ipro-accent: #004cbd;
+    --ipro-btn: #18428f;
+    --ipro-yellow: #ffb100;
+    --ipro-text: #1f2937;
+    --ipro-text-muted: #4b5563;
+    --ipro-bg: #ffffff;
+    --ipro-bg-subtle: #f3f4f6;
+    --ipro-border: #e5e7eb;
+    --ipro-radius: 16px;
+    --ipro-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 64, 147, 0.06);
+    --ipro-shadow-hover: 0 8px 30px rgba(0, 64, 147, 0.12);
+    --ipro-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:focus-visible {
+    outline: 3px solid rgba(0, 60, 132, 0.55);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 2000;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--ipro-primary-deep);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-family: Inter, system-ui, sans-serif;
+    transform: translateY(-150%);
+    transition: transform 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #fbfbfb;
+    color: var(--ipro-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: var(--ipro-primary-deep);
+}
+
+.ipro-top-tools {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.ipro-admin-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ipro-primary-deep);
+    text-decoration: none;
+}
+
+.ipro-admin-link:hover {
+    text-decoration: underline;
+    color: var(--ipro-primary);
+}
+
+.ipro-lang {
+    display: inline-flex;
+    border: 1px solid var(--ipro-border);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.ipro-lang-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    background: var(--ipro-bg-subtle);
+    color: var(--ipro-text);
+}
+
+.ipro-lang-btn.ipro-lang-on {
+    background: var(--ipro-primary);
+    color: #fff;
+}
+
+.ipro-lang-btn.ipro-lang-off:hover {
+    background: #e5e7eb;
+}
+
+/* Main */
+.ipro-main {
+    flex: 1;
+    padding: 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.ipro-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--ipro-text-muted);
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.ipro-breadcrumb a {
+    color: var(--ipro-primary);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.ipro-breadcrumb a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.ipro-breadcrumb .ipro-bc-sep {
+    opacity: 0.45;
+}
+
+.ipro-breadcrumb [aria-current='page'] {
+    color: var(--ipro-text);
+    font-weight: 600;
+}
+
+/* Hero */
+.ipro-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: ipro-fade-in 0.8s ease-out;
+}
+
+.ipro-hero h1 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--ipro-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.ipro-hero > p {
+    font-size: 1.1rem;
+    color: var(--ipro-text-muted);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.ipro-hero ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+    background: var(--ipro-bg-subtle);
+    padding: 1.5rem 2rem;
+    border-radius: var(--ipro-radius);
+    border: 1px solid var(--ipro-border);
+    box-shadow: var(--ipro-shadow);
+}
+
+.ipro-hero li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--ipro-text);
+    font-weight: 500;
+}
+
+.ipro-hero li i {
+    color: var(--ipro-yellow);
+    font-size: 1.2rem;
+    background: rgba(255, 177, 0, 0.15);
+    padding: 0.4rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Action cards */
+.ipro-action-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    animation: ipro-slide-up 0.8s ease-out 0.15s both;
+}
+
+.ipro-action-card {
+    background: var(--ipro-bg);
+    padding: 2.5rem 2rem;
+    border-radius: var(--ipro-radius);
+    box-shadow: var(--ipro-shadow);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--ipro-transition);
+    border: 1px solid var(--ipro-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.ipro-action-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ipro-shadow-hover);
+    border-color: rgba(255, 177, 0, 0.65);
+}
+
+.ipro-action-card:focus-visible {
+    border-color: var(--ipro-accent);
+}
+
+.ipro-action-card-highlight {
+    background: linear-gradient(135deg, var(--ipro-accent) 0%, var(--ipro-primary) 100%);
+    color: #fff !important;
+    border: none;
+    box-shadow: 0 8px 28px rgba(0, 76, 189, 0.35);
+}
+
+.ipro-action-card-highlight:hover {
+    box-shadow: 0 14px 36px rgba(0, 64, 147, 0.4);
+    border-color: transparent;
+}
+
+.ipro-card-icon {
+    font-size: 3rem;
+    color: var(--ipro-primary);
+}
+
+.ipro-action-card-highlight .ipro-card-icon {
+    color: #fff;
+}
+
+.ipro-action-card h2 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1.35rem;
+    color: var(--ipro-text);
+    font-weight: 700;
+}
+
+.ipro-action-card p {
+    color: var(--ipro-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.ipro-action-card-highlight h2,
+.ipro-action-card-highlight p {
+    color: #fff;
+}
+
+@keyframes ipro-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes ipro-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .ipro-main {
+        padding: 2rem 1.25rem;
+    }
+}

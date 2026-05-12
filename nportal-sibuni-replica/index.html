@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <script>
+        (function () {
+            var k = 'unitins-sibuni-theme';
+            var s = null;
+            try { s = localStorage.getItem(k); } catch (e) {}
+            var t = (s === 'light' || s === 'dark')
+                ? s
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+
+            var kl = 'unitins-sibuni-lang';
+            var sl = null;
+            try { sl = localStorage.getItem(kl); } catch (e) {}
+            var lang = (sl === 'en' || sl === 'pt') ? sl : 'pt';
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        })();
+    </script>
+    <script>
+        (function () {
+            try {
+                var r = localStorage.getItem('unitins-visual-a11y');
+                if (!r) return;
+                var o = JSON.parse(r);
+                if (o.font) document.documentElement.setAttribute('data-a11y-font-size', o.font);
+                if (o.spacing) document.documentElement.setAttribute('data-a11y-spacing', o.spacing);
+                if (o.contrast) document.documentElement.setAttribute('data-a11y-contrast', o.contrast);
+            } catch (e) {}
+        })();
+    </script>
+    <meta name="description" content="Unitins - Universidade Estadual do Tocantins">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://www.unitins.br/Uniperfil/Upload/da2c288f8dc21c685081ef337c37f3b4.ico">
+    <title>Unitins - SIBUNI</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link href="assets/estilo.css" rel="stylesheet" id="master-css" />
+    <link href="assets/theme-sibuni.css" rel="stylesheet" />
+    <link href="assets/unitins-footer-light.css" rel="stylesheet" />
+    <link href="assets/a11y-visual.css" rel="stylesheet" />
+    <link href="https://rsms.me/inter/inter.css?vr=1" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://www.unitins.br/nPortal/Content/v3/fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="alternate" hreflang="pt-BR" id="hreflang-pt-br" href="https://www.unitins.br/nPortal/sibuni" />
+    <link rel="alternate" hreflang="en" id="hreflang-en" href="https://www.unitins.br/nPortal/sibuni" />
+</head>
+<body>
+
+    <a class="skip-link" href="#conteudo" data-i18n="skipToContent">Pular para o conteúdo principal</a>
+
+<div>
+    <header id="barra-topo" class="smart-scroll" role="banner">
+        <div class="container">
+            <div class="row py-2">
+
+                <div class="col-2 col-sm-3 col-md-1 col-lg-3 d-flex align-items-center z-index-1000">
+                    <div id="trigger-menu-mobile" class="d-block d-sm-block d-md-block d-lg-none text-center">
+                        <button data-i18n-aria-label="ariaMenu" aria-label="Menu" data-trigger="#menumobile" class="bg-dark btn-barra-topo rounded-circle p-1 mr-1" type="button">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <button data-i18n-aria-label="ariaSearch" aria-label="Pesquisar" data-toggle="modal" data-target="#ModalPesquisa" class="bg-dark btn-barra-topo rounded-circle p-1" type="button">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <button type="button" id="theme-toggle" class="bg-dark btn-barra-topo rounded-circle p-1 ml-1" aria-pressed="false" aria-label="Ativar tema escuro" data-i18n-title="themeTitle" title="Alternar tema claro ou escuro">
+                        <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                        <i class="fas fa-sun theme-icon-light d-none" aria-hidden="true"></i>
+                    </button>
+                    <div class="ipro-lang ml-2" role="group">
+                        <button type="button" class="ipro-lang-btn ipro-lang-on" id="ipro-pt" data-set-lang="pt" aria-pressed="true">PT</button>
+                        <button type="button" class="ipro-lang-btn ipro-lang-off" id="ipro-en" data-set-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                </div>
+
+                <div class="col-8 col-sm-6 col-md-10 col-lg-6">
+                    <div class="logotitulo">
+                        <div class="d-flex justify-content-center align-items-center">
+                                <a href="https://www.unitins.br/nPortal/" data-i18n-aria-label="ariaHome" aria-label="Ir para a página inicial">
+                                    <div class="d-none d-sm-none d-md-block d-lg-block d-xl-block">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            
+                                                <img src="assets/logo-unitins.png" alt="Logo Unitins" data-i18n-alt="altLogoUnitins">
+                                            
+                                            <span class="ml-3 barra"></span>
+                                            <span class="ml-3 nomesite ">
+SIBUNI                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-block d-sm-block d-md-none d-lg-none d-xl-none text-center">
+                                        <img src="assets/simbolo.png" alt="Símbolo Unitins" data-i18n-alt="altSimbolo">
+                                        <br/>
+                                        <span class="text-uppercase font-weight-bold">
+                                            SIBUNI
+                                        </span>
+                                    </div>
+                                </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2 col-sm-3 col-md-1 col-lg-3 d-flex align-items-center justify-content-end">
+
+                    <div class="d-none d-sm-none d-md-none d-lg-none d-xl-block text-right">
+                        <a href="https://www.instagram.com/unitins_oficial/" data-i18n-aria-label="socialIG" aria-label="Instagram Unitins" target="_blank" rel="noopener" class="mr-3">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/unitinsoficial" target="_blank" data-i18n-aria-label="socialFB" aria-label="Facebook Unitins" rel="noopener" class="mr-3">
+                            <i class="fab fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCRtt_C3Q_9cm5J532cTzr2Q" rel="noopener" data-i18n-aria-label="socialYT" aria-label="Youtube Unitins" target="_blank" class="mr-3">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/unitins" target="_blank" rel="noopener" data-i18n-aria-label="socialTW" aria-label="Twitter Unitins" class="mr-3">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/school/unitins/" rel="noopener" data-i18n-aria-label="socialLI" aria-label="Linkedin Unitins" target="_blank">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <img src="assets/logo-gov.png" alt="Logo Governo do Tocantins" class="ml-3" data-i18n-alt="altLogoGov">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+            <div class="container d-none d-sm-none d-md-none d-lg-block">
+        <nav class="yamm row" data-i18n-aria-label="navAria" aria-label="Menu principal do SIBUNI">
+            <div class="container" id="menu">
+                <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a class="nav-link" target="_top" rel="noopener" href="https://www.unitins.br/nPortal/sibuni/page/show/bibliotecas-dos-campus"><span data-i18n="navCampus">Bibliotecas dos c&#226;mpus</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_top" rel="noopener" href="https://www.unitins.br/nPortal/sibuni/page/show/bibliotecas-virtuais"><span data-i18n="navVirtual">Biblioteca Virtual</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_blank" rel="noopener" href="https://fichacatalografica.unitins.br"><span data-i18n="navFicha">Ficha Catalogr&#225;fica</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" target="_top" rel="noopener" href="https://www.unitins.br/RepositorioDigital/Publico"><span data-i18n="navTCC">Reposit&#243;rio Digital de TCCs</span></a>
+                            </li>
+                            <li class="nav-item dropdown yamm-fw nav-item">
+                                <a href="#" class="nav-link" data-toggle="dropdown"><span data-i18n="navLinks">Links &#250;teis</span></a>
+                                <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="card-columns">
+                                                            <div class="card bg-transparent border-0 p-0 mb-3">
+                                                                <h4 data-i18n="megaPres">Apresenta&#231;&#227;o</h4>
+                                                                <ul class="list">
+                                                                        <li>
+                                                                            <a href="https://www.unitins.br/cms/Arquivos/Download/8DE6BCDD6528BAD5E512A00441D36A0A101649FF" rel="noopener" target="_blank"><span data-i18n="megaRegimento">Regimento</span></a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="https://youtu.be/LlY-iM_fZfY" rel="noopener" target="_top"><span data-i18n="megaTutorial">Tutorial sobre o Sibuni</span></a>
+                                                                        </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card bg-transparent border-0 p-0 mb-3">
+                                                                <h4 data-i18n="megaDados">BASES DE DADOS</h4>
+                                                                <ul class="list">
+                                                                        <li>
+                                                                            <a href="https://www.unitins.br/nPortal/sibuni/page/show/ebooks" rel="noopener" target="_top"><span data-i18n="megaEbooks">E-books Diversos</span></a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="https://www.unitins.br/pesquisabiblioteca" rel="noopener" target="_top"><span data-i18n="megaCat">Cat&#225;logo on-line</span></a>
+                                                                        </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card bg-transparent border-0 p-0 mb-3">
+                                                                <h4 data-i18n="megaDiv">DIVERSOS</h4>
+                                                                <ul class="list">
+                                                                        <li>
+                                                                            <a href="https://www.unitins.br/nPortal/sibuni/page/show/perguntas-frequentes" rel="noopener" target="_top"><span data-i18n="megaFAQ">Perguntas Frequentes</span></a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="https://www.unitins.br/nPortal/sibuni/page/show/produtos-e-servicos" rel="noopener" target="_top"><span data-i18n="megaProd">Produtos e Servi&#231;os</span></a>
+                                                                        </li>
+                                                                </ul>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                </ul>
+                            </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    </header>
+    <div class="screen-overlay"></div>
+    <aside class="offcanvas" id="menumobile">
+        <header class="px-4 py-2 bg-light border-bottom">
+            <div class="position-absolute" style="top: 5px; left: 50px;">
+                <button type="button" class="close btn-close" data-dismiss="modal" data-i18n-aria-label="mobileClose" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <a href="https://www.unitins.br/nPortal/">
+                <img src="assets/logo-unitins.png" alt="Logo Unitins" data-i18n-alt="altLogoUnitins" style="margin-left: 30px; height: 45px;">
+            </a>
+        </header>
+
+        
+        <div class="accordion list-group list-group-flush" id="accordionExample">
+                    <a class="list-group-item" rel="noopener" target="_top" href="https://www.unitins.br/nPortal/sibuni/page/show/bibliotecas-dos-campus"><span data-i18n="navCampus">Bibliotecas dos c&#226;mpus</span></a>
+                    <a class="list-group-item" rel="noopener" target="_top" href="https://www.unitins.br/nPortal/sibuni/page/show/bibliotecas-virtuais"><span data-i18n="navVirtual">Biblioteca Virtual</span></a>
+                    <a class="list-group-item" rel="noopener" target="_blank" href="https://fichacatalografica.unitins.br"><span data-i18n="navFicha">Ficha Catalogr&#225;fica</span></a>
+                    <a class="list-group-item" rel="noopener" target="_top" href="https://www.unitins.br/RepositorioDigital/Publico"><span data-i18n="navTCC">Reposit&#243;rio Digital de TCCs</span></a>
+                    <a class="list-group-item" data-toggle="collapse" href="#collapse-links&#250;teis" role="button" aria-expanded="false" aria-controls="collapse-links&#250;teis"><span data-i18n="navLinks">Links &#250;teis</span></a>
+                    <div id="collapse-links&#250;teis" class="collapse" aria-labelledby="collapse-links&#250;teis" data-parent="#collapse-links&#250;teis">
+                            <nav class="menu-collapse">
+                                        <strong data-i18n="megaPres">Apresenta&#231;&#227;o</strong>
+                                        <ul class="list-unstyled">
+                                                <li><a href="https://www.unitins.br/cms/Arquivos/Download/8DE6BCDD6528BAD5E512A00441D36A0A101649FF" rel="noopener" target="_blank"><span data-i18n="megaRegimento">Regimento</span></a></li>
+                                                <li><a href="https://youtu.be/LlY-iM_fZfY" rel="noopener" target="_top"><span data-i18n="megaTutorial">Tutorial sobre o Sibuni</span></a></li>
+                                        </ul>                                                
+                                        <strong data-i18n="megaDados">BASES DE DADOS</strong>
+                                        <ul class="list-unstyled">
+                                                <li><a href="https://www.unitins.br/nPortal/sibuni/page/show/ebooks" rel="noopener" target="_top"><span data-i18n="megaEbooks">E-books Diversos</span></a></li>
+                                                <li><a href="https://www.unitins.br/pesquisabiblioteca" rel="noopener" target="_top"><span data-i18n="megaCat">Cat&#225;logo on-line</span></a></li>
+                                        </ul>                                                
+                                        <strong data-i18n="megaDiv">DIVERSOS</strong>
+                                        <ul class="list-unstyled">
+                                                <li><a href="https://www.unitins.br/nPortal/sibuni/page/show/perguntas-frequentes" rel="noopener" target="_top"><span data-i18n="megaFAQ">Perguntas Frequentes</span></a></li>
+                                                <li><a href="https://www.unitins.br/nPortal/sibuni/page/show/produtos-e-servicos" rel="noopener" target="_top"><span data-i18n="megaProd">Produtos e Servi&#231;os</span></a></li>
+                                        </ul>                                                
+                            </nav>
+                    </div>
+        </div>
+          
+    </aside>
+
+    
+
+    </div>
+    
+
+
+<header id="cabecalho-interno" class="mb-15">
+    <div class="overlayhead"></div>
+    <div class="container text-center position-relative">
+
+                    <h1 class="mt-30 mb-2">SIBUNI</h1>
+                    <p class="page-header-lead px-3" data-i18n="pageLead">Sistema Integrado de Bibliotecas da UNITINS</p>
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <nav class="sibuni-breadcrumb-wrap text-center" aria-labelledby="breadcrumb-label">
+                    <p id="breadcrumb-label" class="breadcrumb-intro mb-0" data-i18n="breadHere">Você está em</p>
+                    <ol class="breadcrumb sibuni-breadcrumb mb-0 justify-content-center flex-wrap">
+                        <li class="breadcrumb-item">
+                            <a href="https://www.unitins.br/"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="breadHome">Início</span></a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="https://www.unitins.br/nPortal/perfilaluno"><span data-i18n="breadPortalAluno">Portal do Aluno</span></a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <span aria-current="page" data-i18n="ldSibuni">SIBUNI</span>
+                        </li>
+                    </ol>
+                </nav>
+                <script type="application/ld+json" id="ld-breadcrumb">
+                {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.unitins.br/"},{"@type":"ListItem","position":2,"name":"Portal do Aluno","item":"https://www.unitins.br/nPortal/perfilaluno"},{"@type":"ListItem","position":3,"name":"SIBUNI","item":"https://www.unitins.br/nPortal/sibuni"}]}
+                </script>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main id="conteudo" tabindex="-1">
+<section class="bg-transparent">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div id="pagina-unitins" class="col-md-8" style="overflow: hidden">
+                <div class="clearfix">
+<p style="text-align:center"><img alt="" src="https://www.unitins.br/cms/Midia/Imagens/FMEGBHCXJN5K7VGRGMDGSLLMNGAB6FJLLPXAYACMM.jpg" style="height:207px; width:700px" /></p>
+
+<p><strong data-i18n="introTitle">Apresenta&ccedil;&atilde;o</strong></p>
+
+<p style="text-align:justify" data-i18n="introP">Composto pelas Bibliotecas dos C&acirc;mpus de Palmas, Dian&oacute;polis, Araguatins e Augustin&oacute;polis, o Sistema Integrado de Bibliotecas da Universidade Estadual do Tocantins (Sibuni) alinha a gest&atilde;o do acervo bibliogr&aacute;fico da institui&ccedil;&atilde;o, disponibilizando suporte informacional necess&aacute;rio para o desenvolvimento de atividades t&eacute;cnicas administrativas e aos programas de ensino, pesquisa e extens&atilde;o da Universidade.</p>
+
+                <div class="campus-chips text-center" role="list" data-i18n-aria-label="chipsAria" aria-label="C&acirc;mpus com bibliotecas integradas ao SIBUNI">
+                    <span class="ds-campus-chip" role="listitem">Palmas</span>
+                    <span class="ds-campus-chip" role="listitem">Dian&oacute;polis</span>
+                    <span class="ds-campus-chip" role="listitem">Araguatins</span>
+                    <span class="ds-campus-chip" role="listitem">Augustin&oacute;polis</span>
+                </div>
+
+<hr />
+<p style="text-align:justify"><a href="http://www.unitins.br/cms/Arquivos/Download/43B352E10D0678102C2B237174DC6E00B217FD8F" target="_blank" rel="noopener noreferrer"><img alt="" src="https://www.unitins.br/cms/Midia/Arquivos/637549492464209601.PNG" style="height:141px; width:100px" /></a>&nbsp;</p>
+
+<p style="text-align:justify" data-i18n-html="guideHtml"><strong>Acesse aqui o <a href="https://www.unitins.br/cms/Arquivos/Download/43B352E10D0678102C2B237174DC6E00B217FD8F" target="_blank" rel="noopener noreferrer">Guia do Usu&aacute;rio </a>da Biblioteca!</strong></p>
+
+<hr />
+<p style="text-align:center"><a href="https://www.unitins.br/nportal/sibuni/page/show/bibliotecas-virtuais"><img alt="" class="img-fluid" src="https://www.unitins.br/cms/Midia/Imagens/IW31ZURBLEFCMJDB9ZYDBAL7JG1IVYIYLRVKVHTE4.jpeg" /></a></p>
+
+<p style="text-align:center">&nbsp;</p>
+
+<p style="text-align:center"><a href="https://www.unitins.br/cms/Arquivos/Download/4CC0E5327C6FD8BA3760139393C3886B18894481"><strong data-i18n="regimentoLink">Confira o Regimento de Acesso da Biblioteca Unitins</strong></a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="noticias" class="noticias" aria-labelledby="titulo-noticias">
+        <div class="container">
+            <div class="clearfix">
+    <h2 id="titulo-noticias" class="titulo-secao float-left">
+        <span data-i18n="newsH">Notícias</span>
+    </h2>
+    <a href="https://www.unitins.br/nPortal/sibuni/noticias" class="button float-right d-none d-sm-none d-md-inline">
+        <i class="fa fa-chevron-right"></i>
+        <span data-i18n="newsAll">Todas as Notícias</span>
+    </a>
+</div>
+
+<div class="row no-gutters mx-n2">
+
+
+<div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3 px-2">
+    <div class="card h-100 border-0">
+            <img class="img-fluid" src="https://www.unitins.br/cms/Midia/Imagens/OWJXBVCFQ2G0EZKFOLTO7H6HZVQ19CX9BG8HA19RPVC.jpeg" alt="Unitins apresenta projetos e refor&#231;a protagonismo no F&#243;rum de Integra&#231;&#227;o Amaz&#244;nia Global, promovido pela UEPA" />        <div class="card-body">
+            <div class="mb-0">
+                <small><span class="badge extensao mb-2">Unitins na COP30</span></small>
+            </div>
+            <a href="https://www.unitins.br/nPortal/portal/noticias/detalhes/7755-2025-11-14-unitins-apresenta-projetos-e-reforca-protagonismo-no-forum-de-integracao-amazonia-global-promovido-pela-uepa" class="stretched-link">
+                <span class="card-title h5">
+                    Unitins apresenta projetos e refor&#231;a protagonismo no F&#243;rum de Integra&#231;&#227;o Amaz&#244;nia Global, promovido pela UEPA
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3 px-2">
+    <div class="card h-100 border-0">
+            <img class="img-fluid" src="https://www.unitins.br/cms/Midia/Imagens/EWALF1EMQFWHZOUTUYOUUXX09T5XS8EV0Y8EOJXBJS.png" alt="Unitins participa de pain&#233;is sobre sa&#250;de, meio ambiente e direitos humanos no segundo dia de programa&#231;&#227;o da COP30" />        <div class="card-body">
+            <div class="mb-0">
+                <small><span class="badge extensao mb-2">Unitins na COP30</span></small>
+            </div>
+            <a href="https://www.unitins.br/nPortal/portal/noticias/detalhes/7754-2025-11-14-unitins-participa-de-paineis-sobre-saude-meio-ambiente-e-direitos-humanos-no-segundo-dia-de-programacao-da-cop30" class="stretched-link">
+                <span class="card-title h5">
+                    Unitins participa de pain&#233;is sobre sa&#250;de, meio ambiente e direitos humanos no segundo dia de programa&#231;&#227;o da COP30
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3 px-2">
+    <div class="card h-100 border-0">
+            <img class="img-fluid" src="https://www.unitins.br/cms/Midia/Imagens/7TVJUXBLVITX9I3LWLII3EF6MEB2YWL97CBJ0EAFS.png" alt="Unitins leva delega&#231;&#227;o para a COP 30 e participa de agenda na Green Zone, Blue Zone e no F&#243;rum de Integra&#231;&#227;o da Amaz&#244;nia Global" />        <div class="card-body">
+            <div class="mb-0">
+                <small><span class="badge extensao mb-2">Unitins na COP30</span></small>
+            </div>
+            <a href="https://www.unitins.br/nPortal/portal/noticias/detalhes/7739-2025-11-10-unitins-leva-delegacao-para-a-cop-30-e-participa-de-agenda-na-green-zone-blue-zone-e-no-forum-de-integracao-da-amazonia-global" class="stretched-link">
+                <span class="card-title h5">
+                    Unitins leva delega&#231;&#227;o para a COP 30 e participa de agenda na Green Zone, Blue Zone e no F&#243;rum de Integra&#231;&#227;o da Amaz&#244;nia Global
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-6 col-sm-12 col-md-6 col-lg-6 col-xl-3 mb-3 px-2">
+    <div class="card h-100 border-0">
+            <img class="img-fluid" src="https://www.unitins.br/cms/Midia/Imagens/E4HVDAW997QCH8O1YQPKIPA0MHKULKBD9NJLQDL4IR8.jpeg" alt="Oficina Bunitins une m&#250;sica e sustentabilidade no IX Col&#243;quio Interdisciplinar da Unitins" />        <div class="card-body">
+            <div class="mb-0">
+                <small><span class="badge extensao mb-2">SCTI 2025</span></small>
+            </div>
+            <a href="https://www.unitins.br/nPortal/portal/noticias/detalhes/7691-2025-10-24-oficina-bunitins-une-musica-e-sustentabilidade-no-ix-coloquio-interdisciplinar-da-unitins" class="stretched-link">
+                <span class="card-title h5">
+                    Oficina Bunitins une m&#250;sica e sustentabilidade no IX Col&#243;quio Interdisciplinar da Unitins
+                </span>
+            </a>
+        </div>
+    </div>
+</div></div>
+<div class="d-sm-block d-md-none">
+    <a href="https://www.unitins.br/nPortal/sibuni/noticias" class="button button-4 button-4c text-center btn-block d-md-none">
+        <i class="fa fa-chevron-right"></i>
+        <span data-i18n="newsAll">Todas as Notícias</span>
+    </a>
+</div>
+        </div>
+    </section>
+
+
+</div>
+
+
+<div class="modal fade" id="ModalPesquisa" tabindex="-1" aria-labelledby="exampleModalLabelPesquisa" aria-hidden="true">
+
+    <div class="position-absolute" style="top: 15px; left: 15px;">
+        <button type="button" class="close" data-dismiss="modal" data-i18n-aria-label="modalClose" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content bg-transparent border-0">
+
+            <div class="modal-body">
+<form action="https://www.unitins.br/nPortal/sibuni/pesquisa" method="get">                    <div class="input-group">
+                        <input autocomplete="off" name="busca" class="form-control border-right-0 border-0" type="text" id="modal-search-field" placeholder="Pesquisar..." data-i18n-placeholder="placeSearch" data-i18n-aria-label="ariaSearchSibuni" aria-label="Pesquisar no SIBUNI">
+                        <span class="input-group-append border-0">
+                            <button class="btn bg-transparent input-group-text border-0" id="btnPesquisar" type="submit" data-i18n-aria-label="ariaSearchBtn" aria-label="Pesquisar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+</form>
+    <div class="search-suggestions text-center">
+        <h4 class="mb-15" data-i18n="sugTitle">Talvez você possa se interessar por...</h4>
+            <a href="https://www.unitins.br/PortalAluno" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugPortalAluno">Portal do Aluno</span></a>
+            <a href="https://www.unitins.br/nPortal/vestibular" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugVest">Vestibular</span></a>
+            <a href="https://www.unitins.br/nPortal/perfiladministrativo/page/show/rh-online" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugContra">Contracheque</span></a>
+            <a href="https://www.unitins.br/apps" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugProf">Portal do Professor</span></a>
+            <a href="https://www.unitins.br/nPortal/perfiladministrativo/page/show/rh-online" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugFerias">F&#233;rias</span></a>
+            <a href="https://www.unitins.br/Concursos/Publico" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugConc">Concursos</span></a>
+            <a href="https://www.unitins.br/nPortal/perfiladministrativo/page/show/formularios-de-frequencia" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugForm">Formul&#225;rio de frequ&#234;ncia</span></a>
+            <a href="https://www.unitins.br/nPortal/perfiladministrativo/page/show/formularios-de-frequencia" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugForm">Formul&#225;rio de frequ&#234;ncia</span></a>
+            <a href="https://www.unitins.br/Eventos/Account/Login" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugEvt">Sistema Eventos</span></a>
+            <a href="https://www.unitins.br/nPortal/sibuni" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugLib">Biblioteca</span></a>
+            <a href="https://www.unitins.br/iprotocolo/" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugDip">Diploma e Hist&#243;rico</span></a>
+            <a href="https://www.unitins.br/nPortal/extensao/page/show/sistema-eventos" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugEvt">Sistema Eventos</span></a>
+            <a href="https://www.unitins.br/graduacao/page/show/estagio" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugEst1">Est&#225;gio obrigat&#243;rio</span></a>
+            <a href="https://www.unitins.br/extensao/page/show/estagio-nao-obrigatorio" target="_top" class="btn btn-sm btn-warning mx-1 my-2"><span data-i18n="sugEst2">Est&#225;gio n&#227;o obrigat&#243;rio</span></a>
+    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer class="pal-ft" id="footer">
+    <div class="pal-ft-grid">
+        <div class="pal-ft-col">
+            <h4 data-i18n="footColAtend">Atendimento ao Acadêmico</h4>
+            <div class="pal-ft-links">
+                <a href="https://www.unitins.br/nPortal/portal/page/show/ouvidoria-da-unitins" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments" aria-hidden="true"></i> <span data-i18n="footOuvInst">Ouvidoria Institucional</span></a>
+                <a href="https://ouvidoria.to.gov.br/" target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" aria-hidden="true"></i> <span data-i18n="footCentral162">Central 162 Ouvidoria Geral</span></a>
+                <a href="https://www.unitins.br/nPortal/portal/page/show/acesso-a-informacao" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle" aria-hidden="true"></i> <span data-i18n="footAcessoInfo">Acesso à Informação</span></a>
+                <a href="https://www.unitins.br/portaltransparencia/" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-bar" aria-hidden="true"></i> <span data-i18n="footTransp">Portal da Transparência</span></a>
+            </div>
+        </div>
+        <div class="pal-ft-col">
+            <h4 data-i18n="footColCert">Certificação Acadêmica</h4>
+            <a href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhamento/d96957f455f6405d14c6542552b0f6eb/ODI5" class="pal-ft-seal" target="_blank" rel="noopener noreferrer">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=Unitins_eMEC&amp;color=1A3C65&amp;bgcolor=FFF" alt="" width="50" height="50" data-i18n-alt="footQrAlt" />
+                <div>
+                    <strong data-i18n="footEmecStrong">Sistema e-MEC</strong>
+                    <span data-i18n="footEmecSub">Instituição Credenciada Ativa</span>
+                </div>
+            </a>
+        </div>
+        <div class="pal-ft-col pal-ft-sede">
+            <h4 data-i18n="footColSede">Sede Administrativa</h4>
+            <p><span data-i18n="footAddrLine1">108 sul Alameda 11 Lote 03</span><br /><span data-i18n="footAddrLine2">Palmas-TO, CEP: 77020-122</span></p>
+            <a class="pal-ft-phone" href="tel:6339014000">(63) 3901-4000</a>
+        </div>
+    </div>
+    <div class="pal-ft-copy">
+        <p data-i18n="footCopyrightLight">© 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto Acadêmico TCC.</p>
+        <p class="pal-ft-dti"><span data-i18n="footerDti">Desenvolvido pela Diretoria de Tecnologia da Informação</span></p>
+    </div>
+</footer>
+
+
+<div class="d-none d-lg-inline">
+    <a id="back-to-top" href="#" class="btn btn-dark btn-lg back-to-top" role="button" data-i18n-title="backTop" title="Voltar ao topo" data-toggle="tooltip" data-placement="left" data-i18n-aria-label="backTop" aria-label="Voltar ao topo">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+<div class="modal" id="myModal" aria-labelledby="myModal"></div>
+
+<script src="assets/jquery-3.5.1.min.js" type="text/javascript"></script>
+<script src="assets/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="assets/i18n-sibuni.js" type="text/javascript"></script>
+<script src="assets/theme-sibuni.js" type="text/javascript"></script>
+<script src="assets/a11y-visual.js" type="text/javascript"></script>
+
+<script async src="assets/util.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#pagina-unitins img').addClass('img img-fluid');
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,168 @@
+/**
+ * Tema escuro opcional — sobrescreve apenas o necessário (réplica fiel + DS / TCC).
+ */
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+}
+
+html[data-theme="dark"] body {
+    background-color: #0f172a;
+    background-image: linear-gradient(160deg, rgba(15, 23, 42, 0.92), rgba(30, 58, 138, 0.85)),
+        url(bg-login-web.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+html[data-theme="dark"] .card {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
+html[data-theme="dark"] .card-title {
+    color: #f8fafc;
+}
+
+html[data-theme="dark"] .form-control {
+    background-color: #334155;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+html[data-theme="dark"] .form-floating > label {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .form-floating > .form-control:focus ~ label,
+html[data-theme="dark"] .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] a {
+    color: #93c5fd;
+}
+
+html[data-theme="dark"] a:hover {
+    color: #bfdbfe;
+}
+
+html[data-theme="dark"] .btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+html[data-theme="dark"] .btn-primary:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+html[data-theme="dark"] .accordion-item {
+    border-color: #334155;
+}
+
+html[data-theme="dark"] .accordion-button {
+    background-color: #1e40af;
+    color: #f8fafc;
+}
+
+html[data-theme="dark"] .accordion-body {
+    background-color: #1e293b;
+}
+
+html[data-theme="dark"] .bg-primario {
+    background-color: #020617 !important;
+}
+
+html[data-theme="dark"] .pal-ft {
+    background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.5) 0%,
+        rgba(15, 23, 42, 0.88) 100%
+    );
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+html[data-theme="dark"] .pal-ft-seal {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
+html[data-theme="dark"] .pal-ft a {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme="dark"] .pal-ft a:hover {
+    color: #fff;
+}
+
+html[data-theme="dark"] .lista-links a {
+    color: #e2e8f0;
+}
+
+html[data-theme="dark"] .portal-login-breadcrumb {
+    color: #64748b;
+}
+
+html[data-theme="dark"] .portal-login-breadcrumb a {
+    color: #93c5fd;
+}
+
+html[data-theme="dark"] :focus-visible {
+    outline-color: rgba(147, 197, 253, 0.9);
+}
+
+html[data-theme="dark"] .skip-link {
+    background: #1d4ed8;
+}
+
+/* Seletor de idioma (padrão iprotocolo-replica) */
+.ipro-lang {
+    display: inline-flex;
+    border: 1px solid #dee2e6;
+    border-radius: 999px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.ipro-lang-btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.2;
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.ipro-lang-btn.ipro-lang-on {
+    background: #004093;
+    color: #fff;
+}
+
+.ipro-lang-btn.ipro-lang-off:hover {
+    background: #e5e7eb;
+}
+
+html[data-theme="dark"] .card .ipro-lang {
+    border-color: #475569;
+}
+
+html[data-theme="dark"] .card .ipro-lang-btn {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+html[data-theme="dark"] .card .ipro-lang-btn.ipro-lang-on {
+    background: #004093;
+    color: #fff;
+}
+
+html[data-theme="dark"] .card .ipro-lang-btn.ipro-lang-off:hover {
+    background: #475569;
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <script>
+        (function () {
+            var kt = 'unitins-portalaluno-theme';
+            var st = null;
+            try { st = localStorage.getItem(kt); } catch (e) {}
+            var theme = (st === 'light' || st === 'dark')
+                ? st
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+
+            var kl = 'unitins-portalaluno-lang';
+            var sl = null;
+            try { sl = localStorage.getItem(kl); } catch (e) {}
+            var lang = (sl === 'en' || sl === 'pt') ? sl : 'pt';
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'pt-BR');
+        })();
+    </script>
+    <script>
+        (function () {
+            try {
+                var r = localStorage.getItem('unitins-visual-a11y');
+                if (!r) return;
+                var o = JSON.parse(r);
+                if (o.font) document.documentElement.setAttribute('data-a11y-font-size', o.font);
+                if (o.spacing) document.documentElement.setAttribute('data-a11y-spacing', o.spacing);
+                if (o.contrast) document.documentElement.setAttribute('data-a11y-contrast', o.contrast);
+            } catch (e) {}
+        })();
+    </script>
+    <title>Portal do Aluno - Login</title>
+    <link rel="shortcut icon" href="https://www.unitins.br/Uniperfil/Upload/da2c288f8dc21c685081ef337c37f3b4.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Acesso ao Portal do Aluno da Universidade Estadual do Tocantins (UNITINS)." />
+
+    <link rel="alternate" hreflang="pt-BR" id="hreflang-pt-br-login" href="https://www.unitins.br/PortalAluno/Account/Login" />
+    <link rel="alternate" hreflang="en" id="hreflang-en-login" href="https://www.unitins.br/PortalAluno/Account/Login" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="assets/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://rsms.me/inter/inter.css?vr=1" rel="stylesheet" />
+    <link href="assets/novo-login.css" rel="stylesheet" />
+    <link href="assets/theme-login.css" rel="stylesheet" />
+    <link href="assets/portal-aluno-login-light-footer.css" rel="stylesheet" />
+    <link href="assets/a11y-visual.css" rel="stylesheet" />
+    <link href="https://www.unitins.br/nPortal/Content/v3/fontawesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <a class="skip-link" href="#conteudo" data-i18n="skipToContent">Pular para o formulário de login</a>
+
+<div id="wrap">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="RenderBody" class="main" style="padding: 0 15px;">
+
+<main id="conteudo" tabindex="-1">
+<div id="page" class="d-flex justify-content-center align-items-center">
+
+    <div class="card border-0">
+        <div class="card-body p-3 p-md-5">
+
+            <div class="text-center mb-4">
+                <a href="https://www.unitins.br/" data-i18n-aria-label="ariaLogo" aria-label="Ir para o site institucional UNITINS">
+                    <img src="assets/logo-unitins.png" class="logotipo" alt="Logo Unitins" data-i18n-alt="altLogo" />
+                </a>
+                <div class="portal-login-toolbar d-flex justify-content-center align-items-center flex-wrap gap-2 mt-3 mb-2">
+                    <div class="ipro-lang" role="group">
+                        <button type="button" class="ipro-lang-btn ipro-lang-on" id="ipro-pt" data-set-lang="pt" aria-pressed="true">PT</button>
+                        <button type="button" class="ipro-lang-btn ipro-lang-off" id="ipro-en" data-set-lang="en" aria-pressed="false">EN</button>
+                    </div>
+                    <button type="button" id="theme-toggle-login" class="btn btn-sm btn-outline-primary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width:32px;height:32px;" aria-pressed="false" aria-label="Ativar tema escuro" data-i18n-title="themeTitle" title="Alternar tema claro ou escuro">
+                        <i class="fas fa-moon fa-sm theme-icon-dark" aria-hidden="true"></i>
+                        <i class="fas fa-sun fa-sm theme-icon-light d-none" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <nav class="portal-login-breadcrumb text-center small mb-0" data-i18n-aria-label="bcNavAria" aria-label="Navegação estrutural">
+                    <ol class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="https://www.unitins.br/"><span data-i18n="bcHome">Início</span></a></li>
+                        <li class="list-inline-item"><span class="text-muted" aria-hidden="true">/</span></li>
+                        <li class="list-inline-item"><a href="https://www.unitins.br/nPortal/perfilaluno"><span data-i18n="bcHub">Portal do Aluno</span></a></li>
+                        <li class="list-inline-item"><span class="text-muted" aria-hidden="true">/</span></li>
+                        <li class="list-inline-item"><span data-i18n="bcLogin" aria-current="page">Login</span></li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h5 class="card-title" data-i18n="introTitle">Portal do Aluno</h5>
+
+            <p data-i18n="introEmail">
+                Acesse utilizando seu e-mail institucional:
+            </p>
+
+            <form action="https://www.unitins.br/PortalAluno/Account/Login" class="form-signin login-form" id="formulario-login-email" method="post" style="padding:0px;">
+                <input name="__RequestVerificationToken" type="hidden" value="" />
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="LoginAd" name="LoginAd" pattern="[a-zA-Z0-9.]+@unitins\.br$" data-i18n-placeholder="phEmail" placeholder="E-mail (@unitins.br)" required data-i18n-title="titleEmail" title="Use um email @unitins.br" type="email" value="" autocomplete="username" />
+                    <label for="LoginAd">
+                        <i class="fas fa-envelope fa-fw" aria-hidden="true"></i> <span data-i18n="lblEmail">E-mail (@unitins.br)</span>
+                    </label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="Senha" maxlength="50" name="Senha" data-i18n-placeholder="phPassword" placeholder="Senha" required type="password" autocomplete="current-password" />
+                    <label for="Senha">
+                        <i class="fas fa-lock fa-fw" aria-hidden="true"></i> <span data-i18n="lblPassword">Senha</span>
+                    </label>
+                </div>
+                <div class="clearfix mb-3">
+                    <div class="float-md-end">
+                        <a href="https://www.unitins.br/PortalAluno/Account/RecuperarSenha"><span data-i18n="forgotPassword">Esqueci minha senha</span></a>
+                    </div>
+                </div>
+                <div class="clearfix mb-3">
+                    <div class="float-md-start">
+                        <a data-bs-toggle="collapse" href="#flush-colapseLinksTutoriais" role="button" aria-expanded="false" aria-controls="flush-colapseLinksTutoriais"><span data-i18n="needHelp">Preciso de Ajuda</span></a>
+                    </div>
+                    <div class="float-md-end">
+                        <a href="http://ava2.unitins.br/" data-i18n-title="avaTitle" title="AVA - Ambiente Virtual de Aprendizagem" rel="noopener noreferrer"><i class="fas fa-graduation-cap fa-fw" aria-hidden="true"></i> <span data-i18n="avaLink">AVA (Turmas 2001-2008)</span></a>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <input type="hidden" value="" id="recaptchaResponseEmail" name="recaptchaResponse" />
+                    <button id="botao-entrar" type="button" class="g-recaptcha btn btn-lg btn-primary btn-block"
+                            data-sitekey="6Lf8VLMUAAAAADjXKIH-kIChQmjRJTeZz8pbFS5b"
+                            data-callback="onSubmitEmail"
+                            data-action="submit">
+                        <span data-i18n="btnEnter">Entrar</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionLinksTutoriais" style="background: #004cbd;">
+            <div class="accordion-item bg-transparent">
+                <h2 class="accordion-header" id="flush-linksTutoriais">
+                    <button class="accordion-button collapsed px-3 px-md-5" type="button" data-bs-toggle="collapse" data-bs-target="#flush-colapseLinksTutoriais" aria-expanded="false" aria-controls="flush-colapseLinksTutoriais">
+                        <span data-i18n="accordionTitle">Acesse nossos Tutoriais e Links Úteis</span>
+                    </button>
+                </h2>
+                <div id="flush-colapseLinksTutoriais" class="accordion-collapse collapse" aria-labelledby="flush-linksTutoriais" data-bs-parent="#accordionLinksTutoriais">
+                    <div class="accordion-body px-5">
+                        <div class="lista-links">
+                            <div class="list-group list-group-flush">
+                                <a href="https://www.unitins.br/uniPerfil/Tutoriais/Visualizar/NjJkYTgxOGEzZmUwMTA0ZGQ4OTliNzJiYzQwNTNiZGQ%3d" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer" target="_blank"><i class="fas fa-sign-in-alt fa-fw" aria-hidden="true"></i> <span data-i18n="tut1">Primeiro acesso ou problemas de acesso</span></a>
+                                <a href="https://www.unitins.br/uniPerfil/Tutoriais/Visualizar/Zjk2YzYzMTAwMGZkOWFiODliZGJmNmIzZjUzODZiN2E%3d" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer" target="_blank"><i class="fas fa-question fa-fw" aria-hidden="true"></i> <span data-i18n="tut2">Esqueci a senha ou quero trocá-la</span></a>
+                                <a href="https://www.unitins.br/Uniperfil/Tutoriais/Visualizar/ZDRhY2Y3NGEyNWMwYTE2MmIwYjg2MWM0MmI1ZWFkYTQ=" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer" target="_blank"><i class="fas fa-chalkboard-teacher fa-fw" aria-hidden="true"></i> <span data-i18n="tut3">Como utilizar as ferramentas do Educ@</span></a>
+                                <a href="https://docs.google.com/viewerng/viewer?url=https://www.unitins.br/cms/Midia/Arquivos/JGYWSPKVR8KSMDSXKQXYLEYE4DLT56XZFUATFTQCA.pdf" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer" target="_blank"><i class="fas fa-book-open fa-fw" aria-hidden="true"></i> <span data-i18n="tut4">Guia Prático do Acadêmico</span></a>
+                                <a href="https://docs.google.com/viewerng/viewer?url=https://www.unitins.br/cms/Midia/Arquivos/DFL4MHQNFBXPKAHZBOIVCZNAFSDMNNUPDKGHCGHWOTS.pdf" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer" target="_blank"><i class="fas fa-book-open fa-fw" aria-hidden="true"></i> <span data-i18n="tut5">Manual do Acadêmico</span></a>
+                                <a href="https://www.unitins.br/nPortal/sibuni" class="list-group-item list-group-item-action px-5 bg-transparent" rel="noopener noreferrer"><i class="fas fa-book fa-fw" aria-hidden="true"></i> <span data-i18n="tut6">SIBUNI - Sistema Integrado de Bibliotecas</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="application/ld+json" id="ld-breadcrumb-login">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.unitins.br/"},{"@type":"ListItem","position":2,"name":"Portal do Aluno","item":"https://www.unitins.br/nPortal/perfilaluno"},{"@type":"ListItem","position":3,"name":"Login","item":"https://www.unitins.br/PortalAluno/Account/Login"}]}
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function onSubmitEmail(token) {
+        var formulario = document.getElementById("formulario-login-email");
+        if (formulario.checkValidity()) {
+            document.getElementById('recaptchaResponseEmail').value = token;
+            formulario.submit();
+            document.getElementById('botao-entrar').disabled = true;
+        } else {
+            formulario.reportValidity();
+        }
+    }
+</script>
+
+</main>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="pal-ft" id="footer">
+    <div class="pal-ft-grid">
+        <div class="pal-ft-col">
+            <h4 data-i18n="footColAtend">Atendimento ao Acadêmico</h4>
+            <div class="pal-ft-links">
+                <a href="https://www.unitins.br/nPortal/portal/page/show/ouvidoria-da-unitins" target="_blank" rel="noopener noreferrer"><i class="fas fa-comments" aria-hidden="true"></i> <span data-i18n="footOuvInst">Ouvidoria Institucional</span></a>
+                <a href="https://ouvidoria.to.gov.br/" target="_blank" rel="noopener noreferrer"><i class="fas fa-phone" aria-hidden="true"></i> <span data-i18n="footCentral162">Central 162 Ouvidoria Geral</span></a>
+                <a href="https://www.unitins.br/nPortal/portal/page/show/acesso-a-informacao" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle" aria-hidden="true"></i> <span data-i18n="footAcessoInfo">Acesso à Informação</span></a>
+                <a href="https://www.unitins.br/portaltransparencia/" target="_blank" rel="noopener noreferrer"><i class="fas fa-chart-bar" aria-hidden="true"></i> <span data-i18n="footTransp">Portal da Transparência</span></a>
+            </div>
+        </div>
+        <div class="pal-ft-col">
+            <h4 data-i18n="footColCert">Certificação Acadêmica</h4>
+            <a href="https://emec.mec.gov.br/emec/consulta-cadastro/detalhamento/d96957f455f6405d14c6542552b0f6eb/ODI5" class="pal-ft-seal" target="_blank" rel="noopener noreferrer">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=Unitins_eMEC&amp;color=1A3C65&amp;bgcolor=FFF" alt="" width="50" height="50" data-i18n-alt="footQrAlt" />
+                <div>
+                    <strong data-i18n="footEmecStrong">Sistema e-MEC</strong>
+                    <span data-i18n="footEmecSub">Instituição Credenciada Ativa</span>
+                </div>
+            </a>
+        </div>
+        <div class="pal-ft-col pal-ft-sede">
+            <h4 data-i18n="footColSede">Sede Administrativa</h4>
+            <p><span data-i18n="footAddrLine1">108 sul Alameda 11 Lote 03</span><br /><span data-i18n="footAddrLine2">Palmas-TO, CEP: 77020-122</span></p>
+            <a class="pal-ft-phone" href="tel:6339014000">(63) 3901-4000</a>
+        </div>
+    </div>
+    <div class="pal-ft-copy">
+        <p data-i18n="footCopyrightLight">© 2026 Universidade Estadual do Tocantins - UNITINS. Todos os direitos reservados. Projeto Acadêmico TCC.</p>
+        <p class="pal-ft-dti"><span data-i18n="footerDti">Desenvolvido pela Diretoria de Tecnologia da Informação</span></p>
+    </div>
+</footer>
+
+<script src="assets/bootstrap.bundle.min.js"></script>
+<script>
+    (function () {
+        var el = document.querySelector('#flush-colapseLinksTutoriais');
+        if (el) {
+            el.addEventListener('shown.bs.collapse', function () {
+                this.scrollIntoView();
+            });
+        }
+    })();
+</script>
+<script src="assets/i18n-login.js"></script>
+<script src="assets/theme-login.js"></script>
+<script src="assets/a11y-visual.js"></script>
+</body>
+</html>

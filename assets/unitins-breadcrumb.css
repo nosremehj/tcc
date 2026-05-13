@@ -1,0 +1,147 @@
+/**
+ * Breadcrumb compartilhado — réplicas SIBUNI, Portal do Aluno (login), IProtocolo.
+ * Use .unitins-bc-wrap--on-dark no hero com fundo escuro; --on-light em cartão / fundo claro.
+ */
+
+.unitins-bc-wrap {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.unitins-bc-trail {
+    margin-top: 0 !important;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+}
+
+.unitins-bc-trail .breadcrumb-item {
+    font-size: 0.9375rem;
+}
+
+.unitins-bc-trail .breadcrumb-item a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.unitins-bc-trail .breadcrumb-item a .fa-home {
+    margin-right: 0.28rem;
+    font-size: 0.85em;
+    opacity: 0.9;
+}
+
+.breadcrumb.unitins-bc-trail .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.5rem;
+}
+
+.breadcrumb.unitins-bc-trail .breadcrumb-item + .breadcrumb-item::before {
+    float: none;
+    display: inline-block;
+    padding-right: 0.55rem;
+    padding-left: 0.15rem;
+    font-size: 0.8em;
+    opacity: 0.85;
+    color: #6c757d;
+    content: "/";
+}
+
+.unitins-bc-trail .breadcrumb-item.active span[aria-current="page"] {
+    cursor: default;
+}
+
+/* —— Sobre fundo escuro (hero SIBUNI) —— */
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item a {
+    color: #fff;
+}
+
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item a:hover,
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item a:focus {
+    border-bottom-color: rgba(255, 255, 255, 0.65);
+    opacity: 1;
+}
+
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(251, 251, 251, 0.75);
+}
+
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item.active,
+.unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item.active span[aria-current="page"] {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* —— Sobre fundo claro (login, IProtocolo) —— */
+.unitins-bc-wrap--on-light .unitins-bc-trail {
+    color: #64748b;
+}
+
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a {
+    color: #004093;
+}
+
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a:hover,
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a:focus {
+    border-bottom-color: rgba(0, 64, 147, 0.45);
+    opacity: 1;
+}
+
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item + .breadcrumb-item::before {
+    color: #94a3b8;
+}
+
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item.active,
+.unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item.active span[aria-current="page"] {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Tema escuro + superfície clara (cartão login / main IProtocolo) */
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a {
+    color: #93c5fd;
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a:hover,
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item a:focus {
+    border-bottom-color: rgba(147, 197, 253, 0.55);
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item + .breadcrumb-item::before {
+    color: #64748b;
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item.active,
+html[data-theme="dark"] .unitins-bc-wrap--on-light .unitins-bc-trail .breadcrumb-item.active span[aria-current="page"] {
+    color: #f8fafc;
+}
+
+/* Hero escuro + tema escuro (refino contraste) */
+html[data-theme="dark"] .unitins-bc-wrap--on-dark .unitins-bc-trail {
+    color: rgba(226, 232, 240, 0.82);
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item a {
+    color: #fff;
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(226, 232, 240, 0.65);
+}
+
+html[data-theme="dark"] .unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item.active,
+html[data-theme="dark"] .unitins-bc-wrap--on-dark .unitins-bc-trail .breadcrumb-item.active span[aria-current="page"] {
+    color: #f8fafc;
+}

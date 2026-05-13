@@ -23,12 +23,12 @@
     <script>
         (function () {
             try {
+                document.documentElement.removeAttribute('data-a11y-contrast');
                 var r = localStorage.getItem('unitins-visual-a11y');
                 if (!r) return;
                 var o = JSON.parse(r);
                 if (o.font) document.documentElement.setAttribute('data-a11y-font-size', o.font);
                 if (o.spacing) document.documentElement.setAttribute('data-a11y-spacing', o.spacing);
-                if (o.contrast) document.documentElement.setAttribute('data-a11y-contrast', o.contrast);
             } catch (e) {}
         })();
     </script>
@@ -43,6 +43,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link href="iprotocolo-light.css" rel="stylesheet" />
+    <link href="../assets/unitins-breadcrumb.css" rel="stylesheet" />
+    <link href="https://www.unitins.br/nPortal/Content/v3/fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="unitins-footer-light.css" rel="stylesheet" />
     <link href="theme-iprotocolo.css" rel="stylesheet" />
     <link href="a11y-visual.css" rel="stylesheet" />
@@ -62,13 +64,23 @@
             </button>
             <a href="https://www.unitins.br/iprotocolo/admin" class="ipro-admin-link" data-i18n="navAdmin">Acesso administrativo</a>
         </div>
-        <nav class="ipro-breadcrumb" aria-label="Breadcrumb">
-            <a href="https://www.unitins.br/"><span data-i18n="bcHome">Página inicial</span></a>
-            <i class="ph ph-caret-right ipro-bc-sep" aria-hidden="true"></i>
-            <a href="https://www.unitins.br/nPortal/perfilaluno"><span data-i18n="bcMid">Portal do Aluno</span></a>
-            <i class="ph ph-caret-right ipro-bc-sep" aria-hidden="true"></i>
-            <span aria-current="page" data-i18n="bcCurrent">IProtocolo</span>
+        <nav class="unitins-bc-wrap unitins-bc-wrap--on-light text-center" data-i18n-aria-label="breadNavAria" aria-label="Navegação estrutural">
+            <ol class="breadcrumb unitins-bc-trail mb-0 justify-content-center flex-wrap">
+                <li class="breadcrumb-item">
+                    <a href="#"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="breadHome">Início</span></a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="../nportal-perfilaluno-replica/index.html"><span data-i18n="breadPortalAluno">Portal do Aluno</span></a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <span aria-current="page" data-i18n="breadCurrent">IProtocolo</span>
+                </li>
+            </ol>
         </nav>
+
+        <script type="application/ld+json" id="ld-breadcrumb-ipro">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"#"},{"@type":"ListItem","position":2,"name":"Portal do Aluno","item":"../nportal-perfilaluno-replica/index.html"},{"@type":"ListItem","position":3,"name":"IProtocolo","item":"https://www.unitins.br/iprotocolo/Default.aspx"}]}
+        </script>
 
         <section class="ipro-hero" aria-labelledby="ipro-hero-title">
             <h1 id="ipro-hero-title" data-i18n="heroTitle">Protocolo virtual público</h1>

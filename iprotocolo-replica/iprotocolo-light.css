@@ -127,39 +127,10 @@ a {
     width: 100%;
 }
 
-.ipro-breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--ipro-text-muted);
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+.ipro-main > .unitins-bc-wrap {
+    margin-bottom: 2.5rem;
 }
 
-.ipro-breadcrumb a {
-    color: var(--ipro-primary);
-    text-decoration: none;
-    font-weight: 500;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
-}
-
-.ipro-breadcrumb a:hover {
-    text-decoration: underline;
-    opacity: 1;
-}
-
-.ipro-breadcrumb .ipro-bc-sep {
-    opacity: 0.45;
-}
-
-.ipro-breadcrumb [aria-current='page'] {
-    color: var(--ipro-text);
-    font-weight: 600;
-}
-
-/* Hero */
 .ipro-hero {
     text-align: center;
     margin-bottom: 4rem;

@@ -3,7 +3,7 @@
 
     var STORAGE_KEY = 'unitins-visual-a11y';
 
-    var DEFAULTS = { font: 'md', spacing: 'normal', contrast: 'normal' };
+    var DEFAULTS = { font: 'md', spacing: 'normal' };
 
     var LABELS = {
         pt: {
@@ -17,9 +17,6 @@
             spacing: 'Espaçamento',
             spacingNormal: 'Padrão',
             spacingWide: 'Amplo',
-            contrast: 'Contraste',
-            contrastNormal: 'Padrão',
-            contrastHigh: 'Alto contraste',
             save: 'Aplicar',
             reset: 'Redefinir',
             close: 'Fechar painel'
@@ -35,9 +32,6 @@
             spacing: 'Spacing',
             spacingNormal: 'Default',
             spacingWide: 'Comfortable',
-            contrast: 'Contrast',
-            contrastNormal: 'Default',
-            contrastHigh: 'High contrast',
             save: 'Apply',
             reset: 'Reset',
             close: 'Close panel'
@@ -57,8 +51,7 @@
         } catch (e) {}
         return {
             font: o.font === 'sm' || o.font === 'md' || o.font === 'lg' || o.font === 'xl' ? o.font : DEFAULTS.font,
-            spacing: o.spacing === 'wide' || o.spacing === 'normal' ? o.spacing : DEFAULTS.spacing,
-            contrast: o.contrast === 'high' || o.contrast === 'normal' ? o.contrast : DEFAULTS.contrast
+            spacing: o.spacing === 'wide' || o.spacing === 'normal' ? o.spacing : DEFAULTS.spacing
         };
     }
 
@@ -72,7 +65,7 @@
         var h = document.documentElement;
         h.setAttribute('data-a11y-font-size', s.font);
         h.setAttribute('data-a11y-spacing', s.spacing);
-        h.setAttribute('data-a11y-contrast', s.contrast);
+        h.removeAttribute('data-a11y-contrast');
     }
 
     function syncFormFromSettings(root, s) {
@@ -80,18 +73,14 @@
         if (f) f.checked = true;
         var sp = root.querySelector('input[name="unitins-a11y-spacing"][value="' + s.spacing + '"]');
         if (sp) sp.checked = true;
-        var c = root.querySelector('input[name="unitins-a11y-contrast"][value="' + s.contrast + '"]');
-        if (c) c.checked = true;
     }
 
     function collectFromForm(root) {
         var font = root.querySelector('input[name="unitins-a11y-font"]:checked');
         var spacing = root.querySelector('input[name="unitins-a11y-spacing"]:checked');
-        var contrast = root.querySelector('input[name="unitins-a11y-contrast"]:checked');
         return {
             font: font ? font.value : DEFAULTS.font,
-            spacing: spacing ? spacing.value : DEFAULTS.spacing,
-            contrast: contrast ? contrast.value : DEFAULTS.contrast
+            spacing: spacing ? spacing.value : DEFAULTS.spacing
         };
     }
 
@@ -101,7 +90,7 @@
         root.setAttribute('id', 'unitins-a11y-root');
         root.innerHTML =
             '<button type="button" class="unitins-a11y-fab" id="unitins-a11y-fab" aria-expanded="false" aria-controls="unitins-a11y-panel">' +
-            '<span aria-hidden="true">A</span><span class="unitins-a11y-fab-text"></span></button>' +
+            '<span class="unitins-a11y-fab-text"></span></button>' +
             '<div class="unitins-a11y-panel" id="unitins-a11y-panel" role="dialog" aria-modal="false" hidden>' +
             '<h2 id="unitins-a11y-title"></h2>' +
             '<fieldset class="unitins-a11y-field"><legend class="unitins-a11y-legend-font"></legend><div class="unitins-a11y-options">' +
@@ -113,10 +102,6 @@
             '<fieldset class="unitins-a11y-field"><legend class="unitins-a11y-legend-spacing"></legend><div class="unitins-a11y-options">' +
             '<label><input type="radio" name="unitins-a11y-spacing" value="normal" /><span class="t-s-n"></span></label>' +
             '<label><input type="radio" name="unitins-a11y-spacing" value="wide" /><span class="t-s-w"></span></label>' +
-            '</div></fieldset>' +
-            '<fieldset class="unitins-a11y-field"><legend class="unitins-a11y-legend-contrast"></legend><div class="unitins-a11y-options">' +
-            '<label><input type="radio" name="unitins-a11y-contrast" value="normal" /><span class="t-c-n"></span></label>' +
-            '<label><input type="radio" name="unitins-a11y-contrast" value="high" /><span class="t-c-h"></span></label>' +
             '</div></fieldset>' +
             '<div class="unitins-a11y-actions">' +
             '<button type="button" class="secondary" id="unitins-a11y-reset"></button>' +
@@ -132,15 +117,12 @@
             root.querySelector('#unitins-a11y-title').textContent = L.title;
             root.querySelector('.unitins-a11y-legend-font').textContent = L.font;
             root.querySelector('.unitins-a11y-legend-spacing').textContent = L.spacing;
-            root.querySelector('.unitins-a11y-legend-contrast').textContent = L.contrast;
             root.querySelector('.t-f-sm').textContent = L.fontSm;
             root.querySelector('.t-f-md').textContent = L.fontMd;
             root.querySelector('.t-f-lg').textContent = L.fontLg;
             root.querySelector('.t-f-xl').textContent = L.fontXl;
             root.querySelector('.t-s-n').textContent = L.spacingNormal;
             root.querySelector('.t-s-w').textContent = L.spacingWide;
-            root.querySelector('.t-c-n').textContent = L.contrastNormal;
-            root.querySelector('.t-c-h').textContent = L.contrastHigh;
             root.querySelector('#unitins-a11y-reset').textContent = L.reset;
             root.querySelector('#unitins-a11y-save').textContent = L.save;
         }

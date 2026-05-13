@@ -103,14 +103,6 @@ html[data-theme="dark"] .lista-links a {
     color: #e2e8f0;
 }
 
-html[data-theme="dark"] .portal-login-breadcrumb {
-    color: #64748b;
-}
-
-html[data-theme="dark"] .portal-login-breadcrumb a {
-    color: #93c5fd;
-}
-
 html[data-theme="dark"] :focus-visible {
     outline-color: rgba(147, 197, 253, 0.9);
 }

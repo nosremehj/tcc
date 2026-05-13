@@ -23,19 +23,6 @@
     transform: translateY(0);
 }
 
-.portal-login-breadcrumb {
-    color: #6c757d;
-}
-
-.portal-login-breadcrumb a {
-    color: #004093;
-    text-decoration: none;
-}
-
-.portal-login-breadcrumb a:hover {
-    text-decoration: underline;
-}
-
 .accordion-button {
     background-color: #004cbd;
     color: #fff;

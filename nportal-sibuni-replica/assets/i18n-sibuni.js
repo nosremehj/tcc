@@ -3,6 +3,7 @@
 
     var STORAGE_KEY = 'unitins-sibuni-lang';
     var GUIDE_URL = 'https://www.unitins.br/cms/Arquivos/Download/43B352E10D0678102C2B237174DC6E00B217FD8F';
+    var PERFIL_ALUNO_REPLICA = '../nportal-perfilaluno-replica/index.html';
 
     var MESSAGES = {
         pt: {
@@ -33,7 +34,7 @@
             megaProd: 'Produtos e Serviços',
             mobileClose: 'Fechar',
             pageLead: 'Sistema Integrado de Bibliotecas da UNITINS',
-            breadHere: 'Você está em',
+            breadNavAria: 'Navegação estrutural',
             breadHome: 'Início',
             breadPortalAluno: 'Portal do Aluno',
             introTitle: 'Apresentação',
@@ -82,8 +83,7 @@
             themeToDark: 'Ativar tema escuro',
             themeToLight: 'Ativar tema claro',
             themeTitle: 'Alternar tema claro ou escuro',
-            ldHome: 'Início',
-            ldSibuni: 'SIBUNI'
+            breadCurrent: 'SIBUNI',
         },
         en: {
             docTitle: 'Unitins - SIBUNI',
@@ -113,7 +113,7 @@
             megaProd: 'Products and services',
             mobileClose: 'Close',
             pageLead: 'Integrated Library System of UNITINS',
-            breadHere: 'You are here',
+            breadNavAria: 'Structural navigation',
             breadHome: 'Home',
             breadPortalAluno: 'Student portal',
             introTitle: 'Overview',
@@ -162,8 +162,7 @@
             themeToDark: 'Switch to dark theme',
             themeToLight: 'Switch to light theme',
             themeTitle: 'Toggle light or dark theme',
-            ldHome: 'Home',
-            ldSibuni: 'SIBUNI'
+            breadCurrent: 'SIBUNI',
         }
     };
 
@@ -188,9 +187,9 @@
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: t('ldHome'), item: 'https://www.unitins.br/' },
-                { '@type': 'ListItem', position: 2, name: t('breadPortalAluno'), item: 'https://www.unitins.br/nPortal/perfilaluno' },
-                { '@type': 'ListItem', position: 3, name: t('ldSibuni'), item: 'https://www.unitins.br/nPortal/sibuni' }
+                { '@type': 'ListItem', position: 1, name: t('breadHome'), item: '#' },
+                { '@type': 'ListItem', position: 2, name: t('breadPortalAluno'), item: PERFIL_ALUNO_REPLICA },
+                { '@type': 'ListItem', position: 3, name: t('breadCurrent'), item: 'https://www.unitins.br/nPortal/sibuni' }
             ]
         };
     }

@@ -2,6 +2,7 @@
     'use strict';
 
     var STORAGE_KEY = 'unitins-portalaluno-lang';
+    var PERFIL_ALUNO_REPLICA = '../nportal-perfilaluno-replica/index.html';
 
     var MESSAGES = {
         pt: {
@@ -11,10 +12,10 @@
             i18nGroupAria: 'Idioma da página',
             ariaLogo: 'Ir para o site institucional UNITINS',
             altLogo: 'Logo Unitins',
-            bcNavAria: 'Navegação estrutural',
-            bcHome: 'Início',
-            bcHub: 'Portal do Aluno',
-            bcLogin: 'Login',
+            breadNavAria: 'Navegação estrutural',
+            breadHome: 'Início',
+            breadPortalAluno: 'Portal do Aluno',
+            breadCurrent: 'Login',
             introTitle: 'Portal do Aluno',
             introEmail: 'Acesse utilizando seu e-mail institucional:',
             lblEmail: 'E-mail (@unitins.br)',
@@ -53,9 +54,6 @@
             themeToDark: 'Ativar tema escuro',
             themeToLight: 'Ativar tema claro',
             themeTitle: 'Alternar tema claro ou escuro',
-            ldHome: 'Início',
-            ldHub: 'Portal do Aluno',
-            ldLogin: 'Login'
         },
         en: {
             docTitle: 'Student Portal - Sign in | UNITINS',
@@ -64,10 +62,10 @@
             i18nGroupAria: 'Page language',
             ariaLogo: 'Go to the UNITINS institutional website',
             altLogo: 'Unitins logo',
-            bcNavAria: 'Structural navigation',
-            bcHome: 'Home',
-            bcHub: 'Student portal',
-            bcLogin: 'Sign in',
+            breadNavAria: 'Structural navigation',
+            breadHome: 'Home',
+            breadPortalAluno: 'Student portal',
+            breadCurrent: 'Sign in',
             introTitle: 'Student Portal',
             introEmail: 'Sign in with your institutional email:',
             lblEmail: 'Email (@unitins.br)',
@@ -106,9 +104,6 @@
             themeToDark: 'Switch to dark theme',
             themeToLight: 'Switch to light theme',
             themeTitle: 'Toggle light or dark theme',
-            ldHome: 'Home',
-            ldHub: 'Student portal',
-            ldLogin: 'Sign in'
         }
     };
 
@@ -126,17 +121,17 @@
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: t('ldHome'), item: 'https://www.unitins.br/' },
+                { '@type': 'ListItem', position: 1, name: t('breadHome'), item: '#' },
                 {
                     '@type': 'ListItem',
                     position: 2,
-                    name: t('ldHub'),
-                    item: 'https://www.unitins.br/nPortal/perfilaluno'
+                    name: t('breadPortalAluno'),
+                    item: PERFIL_ALUNO_REPLICA
                 },
                 {
                     '@type': 'ListItem',
                     position: 3,
-                    name: t('ldLogin'),
+                    name: t('breadCurrent'),
                     item: 'https://www.unitins.br/PortalAluno/Account/Login'
                 }
             ]

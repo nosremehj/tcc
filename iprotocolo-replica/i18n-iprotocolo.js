@@ -13,9 +13,10 @@
             themeToLight: 'Ativar tema claro',
             themeTitle: 'Alternar tema claro ou escuro',
             navAdmin: 'Acesso administrativo',
-            bcHome: 'Página inicial',
-            bcMid: 'Portal do Aluno',
-            bcCurrent: 'IProtocolo',
+            breadNavAria: 'Navegação estrutural',
+            breadHome: 'Início',
+            breadPortalAluno: 'Portal do Aluno',
+            breadCurrent: 'IProtocolo',
             heroTitle: 'Protocolo virtual público',
             heroLead: 'Seja bem-vindo ao nosso ambiente de protocolos. Este é o local oficial e seguro onde acadêmicos, docentes, empresas parceiras e visitantes enviam e acompanham solicitações de serviço.',
             heroLi1: 'Suporte e controle de acesso aos sistemas;',
@@ -51,9 +52,10 @@
             themeToLight: 'Switch to light theme',
             themeTitle: 'Toggle light or dark theme',
             navAdmin: 'Administrative access',
-            bcHome: 'Home',
-            bcMid: 'Student portal',
-            bcCurrent: 'IProtocolo',
+            breadNavAria: 'Structural navigation',
+            breadHome: 'Home',
+            breadPortalAluno: 'Student portal',
+            breadCurrent: 'IProtocolo',
             heroTitle: 'Public virtual protocol',
             heroLead: 'Welcome to our protocol area. This is the official, secure place where students, faculty, partners, and visitors submit and track service requests.',
             heroLi1: 'Support and access to institutional systems;',
@@ -142,6 +144,29 @@
 
         syncLangButtons();
         applyThemeToggleAria();
+
+        var ldBc = document.getElementById('ld-breadcrumb-ipro');
+        if (ldBc) {
+            ldBc.textContent = JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: t('breadHome'), item: '#' },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: t('breadPortalAluno'),
+                        item: '../nportal-perfilaluno-replica/index.html'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 3,
+                        name: t('breadCurrent'),
+                        item: 'https://www.unitins.br/iprotocolo/Default.aspx'
+                    }
+                ]
+            });
+        }
     }
 
     function syncLangButtons() {

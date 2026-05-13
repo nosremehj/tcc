@@ -23,12 +23,12 @@
     <script>
         (function () {
             try {
+                document.documentElement.removeAttribute('data-a11y-contrast');
                 var r = localStorage.getItem('unitins-visual-a11y');
                 if (!r) return;
                 var o = JSON.parse(r);
                 if (o.font) document.documentElement.setAttribute('data-a11y-font-size', o.font);
                 if (o.spacing) document.documentElement.setAttribute('data-a11y-spacing', o.spacing);
-                if (o.contrast) document.documentElement.setAttribute('data-a11y-contrast', o.contrast);
             } catch (e) {}
         })();
     </script>
@@ -38,6 +38,7 @@
     <title>Unitins - SIBUNI</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <link href="assets/estilo.css" rel="stylesheet" id="master-css" />
+    <link href="../assets/unitins-breadcrumb.css" rel="stylesheet" />
     <link href="assets/theme-sibuni.css" rel="stylesheet" />
     <link href="assets/unitins-footer-light.css" rel="stylesheet" />
     <link href="assets/a11y-visual.css" rel="stylesheet" />
@@ -255,22 +256,21 @@ SIBUNI                                            </span>
 
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <nav class="sibuni-breadcrumb-wrap text-center" aria-labelledby="breadcrumb-label">
-                    <p id="breadcrumb-label" class="breadcrumb-intro mb-0" data-i18n="breadHere">Você está em</p>
-                    <ol class="breadcrumb sibuni-breadcrumb mb-0 justify-content-center flex-wrap">
+                <nav class="unitins-bc-wrap unitins-bc-wrap--on-dark text-center" data-i18n-aria-label="breadNavAria" aria-label="Navegação estrutural">
+                    <ol class="breadcrumb unitins-bc-trail mb-0 justify-content-center flex-wrap">
                         <li class="breadcrumb-item">
-                            <a href="https://www.unitins.br/"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="breadHome">Início</span></a>
+                            <a href="#"><i class="fas fa-home" aria-hidden="true"></i> <span data-i18n="breadHome">Início</span></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="https://www.unitins.br/nPortal/perfilaluno"><span data-i18n="breadPortalAluno">Portal do Aluno</span></a>
+                            <a href="../nportal-perfilaluno-replica/index.html"><span data-i18n="breadPortalAluno">Portal do Aluno</span></a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <span aria-current="page" data-i18n="ldSibuni">SIBUNI</span>
+                            <span aria-current="page" data-i18n="breadCurrent">SIBUNI</span>
                         </li>
                     </ol>
                 </nav>
                 <script type="application/ld+json" id="ld-breadcrumb">
-                {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://www.unitins.br/"},{"@type":"ListItem","position":2,"name":"Portal do Aluno","item":"https://www.unitins.br/nPortal/perfilaluno"},{"@type":"ListItem","position":3,"name":"SIBUNI","item":"https://www.unitins.br/nPortal/sibuni"}]}
+                {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"#"},{"@type":"ListItem","position":2,"name":"Portal do Aluno","item":"../nportal-perfilaluno-replica/index.html"},{"@type":"ListItem","position":3,"name":"SIBUNI","item":"https://www.unitins.br/nPortal/sibuni"}]}
                 </script>
             </div>
         </div>

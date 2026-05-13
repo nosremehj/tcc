@@ -2,7 +2,7 @@
     'use strict';
 
     var STORAGE_KEY = 'unitins-portalaluno-lang';
-    var PERFIL_ALUNO_REPLICA = '../nportal-perfilaluno-replica/index.html';
+    var PERFIL_ALUNO_REPLICA = '../perfil-aluno/index.html';
 
     var MESSAGES = {
         pt: {

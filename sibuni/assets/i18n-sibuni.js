@@ -3,7 +3,7 @@
 
     var STORAGE_KEY = 'unitins-sibuni-lang';
     var GUIDE_URL = 'https://www.unitins.br/cms/Arquivos/Download/43B352E10D0678102C2B237174DC6E00B217FD8F';
-    var PERFIL_ALUNO_REPLICA = '../nportal-perfilaluno-replica/index.html';
+    var PERFIL_ALUNO_REPLICA = '../perfil-aluno/index.html';
 
     var MESSAGES = {
         pt: {

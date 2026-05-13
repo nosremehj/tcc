@@ -156,7 +156,7 @@
                         '@type': 'ListItem',
                         position: 2,
                         name: t('breadPortalAluno'),
-                        item: '../nportal-perfilaluno-replica/index.html'
+                        item: '../perfil-aluno/index.html'
                     },
                     {
                         '@type': 'ListItem',
